@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mipsimulator" nsURI="http://mipsimulator/1.0" nsPrefix="mipsimulator">
+  <eSubpackages name="PC">
+    <eClassifiers xsi:type="ecore:EClass" name="PC"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PCAddUnit"/>
+  </eSubpackages>
+  <eSubpackages name="ALU">
+    <eClassifiers xsi:type="ecore:EClass" name="ALU"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ALUControl"/>
+  </eSubpackages>
+  <eSubpackages name="Memory">
+    <eClassifiers xsi:type="ecore:EClass" name="InstructionMemory">
+      <eOperations name="initialize() : void"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_memory" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataMemory">
+      <eOperations name="initialize() : void"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_memory" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Registers"/>
+  </eSubpackages>
+  <eSubpackages name="Register">
+    <eClassifiers xsi:type="ecore:EClass" name="Registers">
+      <eOperations name="initialize() : void"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_symbolicNames" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="_numericRepresentation"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Controls">
+    <eClassifiers xsi:type="ecore:EClass" name="Control"/>
+  </eSubpackages>
+  <eSubpackages name="gui"/>
+  <eSubpackages name="controller"/>
+  <eSubpackages name="Parser">
+    <eClassifiers xsi:type="ecore:EClass" name="Parser"/>
+  </eSubpackages>
+</ecore:EPackage>

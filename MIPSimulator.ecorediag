@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_I9a2oEt_EeKbI502JqXKXg" type="EcoreTools" name="MIPSimulator" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_evLSwEt_EeKbI502JqXKXg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_evMg4Et_EeKbI502JqXKXg" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_evNH8Et_EeKbI502JqXKXg" type="5003">
+      <children xmi:type="notation:Node" xmi:id="_6JU6wEt_EeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_6JVh0Et_EeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_6JVh0Ut_EeKbI502JqXKXg" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_6JVh0kt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_6JVh00t_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_6JVh1Et_EeKbI502JqXKXg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6JWI4Et_EeKbI502JqXKXg" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_6JWI4Ut_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_6JWI4kt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_6JWI40t_EeKbI502JqXKXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_6JU6wUt_EeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//PC/PC"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6JU6wkt_EeKbI502JqXKXg" x="30" y="17"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_7It7MEt_EeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_7IuiQEt_EeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_7IuiQUt_EeKbI502JqXKXg" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_7IuiQkt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_7IuiQ0t_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_7IuiREt_EeKbI502JqXKXg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7IvJUEt_EeKbI502JqXKXg" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_7IvJUUt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_7IvJUkt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_7IvJU0t_EeKbI502JqXKXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_7It7MUt_EeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//PC/PCAddUnit"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7It7Mkt_EeKbI502JqXKXg" x="205" y="12"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_evNH8Ut_EeKbI502JqXKXg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_evNH8kt_EeKbI502JqXKXg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_evNH80t_EeKbI502JqXKXg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_evLSwUt_EeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_evLSwkt_EeKbI502JqXKXg"/>
+    <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#//PC"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_evLSw0t_EeKbI502JqXKXg" x="35" y="225" width="338" height="193"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_8fC08Et_EeKbI502JqXKXg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_8fDcAEt_EeKbI502JqXKXg" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_8fEDEEt_EeKbI502JqXKXg" type="5003">
+      <children xmi:type="notation:Node" xmi:id="_9qtW0Et_EeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_9qt94Et_EeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_9quk8Et_EeKbI502JqXKXg" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_9quk8Ut_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_9quk8kt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_9quk80t_EeKbI502JqXKXg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_9quk9Et_EeKbI502JqXKXg" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_9quk9Ut_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_9quk9kt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_9quk90t_EeKbI502JqXKXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_9qtW0Ut_EeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//ALU/ALU"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9qtW0kt_EeKbI502JqXKXg" x="25" y="2"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_-t3c8Et_EeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_-t4EAEt_EeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_-t4EAUt_EeKbI502JqXKXg" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_-t4EAkt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_-t4EA0t_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_-t4EBEt_EeKbI502JqXKXg"/>
+          <layoutConstraint xmi:type="notation:Ratio" xmi:id="__YUIIEt_EeKbI502JqXKXg" value="0.2926829268292683"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-t4rEEt_EeKbI502JqXKXg" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_-t4rEUt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_-t4rEkt_EeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_-t4rE0t_EeKbI502JqXKXg"/>
+          <layoutConstraint xmi:type="notation:Ratio" xmi:id="__YUIIUt_EeKbI502JqXKXg" value="0.2926829268292683"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_-t3c8Ut_EeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//ALU/ALUControl"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-t3c8kt_EeKbI502JqXKXg" x="175" y="2"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_8fEDEUt_EeKbI502JqXKXg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_8fEDEkt_EeKbI502JqXKXg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_8fEDE0t_EeKbI502JqXKXg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_8fC08Ut_EeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_8fC08kt_EeKbI502JqXKXg"/>
+    <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#//ALU"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8fC080t_EeKbI502JqXKXg" x="485" y="235" width="403" height="188"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_BMW4oEuAEeKbI502JqXKXg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_BMXfsEuAEeKbI502JqXKXg" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_BMYGwEuAEeKbI502JqXKXg" type="5003">
+      <children xmi:type="notation:Node" xmi:id="_CLBgUEuAEeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_CLCHYEuAEeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_CLCucEuAEeKbI502JqXKXg" type="5004">
+          <children xmi:type="notation:Node" xmi:id="_TCxrIEuBEeKbI502JqXKXg" type="2001">
+            <element xmi:type="ecore:EAttribute" href="MIPSimulator.ecore#//Memory/InstructionMemory/_memory"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_TCxrIUuBEeKbI502JqXKXg"/>
+          </children>
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_CLCucUuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_CLCuckuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_CLCuc0uAEeKbI502JqXKXg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_CLCudEuAEeKbI502JqXKXg" type="5005">
+          <children xmi:type="notation:Node" xmi:id="_VyoHIEuCEeKbI502JqXKXg" type="2002">
+            <element xmi:type="ecore:EOperation" href="MIPSimulator.ecore#//Memory/InstructionMemory/initialize()%20%3A%20void"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_VyoHIUuCEeKbI502JqXKXg"/>
+          </children>
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_CLCudUuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_CLCudkuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_CLCud0uAEeKbI502JqXKXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_CLBgUUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//Memory/InstructionMemory"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CLBgUkuAEeKbI502JqXKXg" x="9" y="10" width="179" height="100"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_GQLX0EuAEeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_GQMl8EuAEeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_GQMl8UuAEeKbI502JqXKXg" type="5004">
+          <children xmi:type="notation:Node" xmi:id="_Xh_BYEuBEeKbI502JqXKXg" type="2001">
+            <element xmi:type="ecore:EAttribute" href="MIPSimulator.ecore#//Memory/DataMemory/_memory"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_Xh_BYUuBEeKbI502JqXKXg"/>
+          </children>
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_GQMl8kuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_GQMl80uAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_GQMl9EuAEeKbI502JqXKXg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_GQMl9UuAEeKbI502JqXKXg" type="5005">
+          <children xmi:type="notation:Node" xmi:id="_XgORYEuCEeKbI502JqXKXg" type="2002">
+            <element xmi:type="ecore:EOperation" href="MIPSimulator.ecore#//Memory/DataMemory/initialize()%20%3A%20void"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_XgORYUuCEeKbI502JqXKXg"/>
+          </children>
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_GQMl9kuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_GQMl90uAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_GQMl-EuAEeKbI502JqXKXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_GQLX0UuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//Memory/DataMemory"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GQL-4EuAEeKbI502JqXKXg" x="215" y="12" width="178" height="98"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_BMYGwUuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_BMYGwkuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_BMYGw0uAEeKbI502JqXKXg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_BMW4oUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_BMW4okuAEeKbI502JqXKXg"/>
+    <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#//Memory"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BMW4o0uAEeKbI502JqXKXg" x="35" y="35" width="422" height="181"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_OtY0sEuAEeKbI502JqXKXg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_OtZbwEuAEeKbI502JqXKXg" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_OtaC0EuAEeKbI502JqXKXg" type="5003">
+      <children xmi:type="notation:Node" xmi:id="_PsaBsEuAEeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_PsaowEuAEeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_PsbP0EuAEeKbI502JqXKXg" type="5004">
+          <children xmi:type="notation:Node" xmi:id="_m7bQkEuBEeKbI502JqXKXg" type="2001">
+            <element xmi:type="ecore:EAttribute" href="MIPSimulator.ecore#//Register/Registers/_symbolicNames"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_m7bQkUuBEeKbI502JqXKXg"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_JbDGcEuCEeKbI502JqXKXg" type="2001">
+            <element xmi:type="ecore:EAttribute" href="MIPSimulator.ecore#//Register/Registers/_numericRepresentation"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_JbDGcUuCEeKbI502JqXKXg"/>
+          </children>
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_PsbP0UuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_PsbP0kuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_PsbP00uAEeKbI502JqXKXg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_PsbP1EuAEeKbI502JqXKXg" type="5005">
+          <children xmi:type="notation:Node" xmi:id="_YthK8EuCEeKbI502JqXKXg" type="2002">
+            <element xmi:type="ecore:EOperation" href="MIPSimulator.ecore#//Register/Registers/initialize()%20%3A%20void"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_YthK8UuCEeKbI502JqXKXg"/>
+          </children>
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_PsbP1UuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_PsbP1kuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_PsbP10uAEeKbI502JqXKXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_PsaBsUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//Register/Registers"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PsaBskuAEeKbI502JqXKXg" x="10" y="7" width="294" height="84"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_OtaC0UuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_OtaC0kuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_OtaC00uAEeKbI502JqXKXg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_OtY0sUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_OtY0skuAEeKbI502JqXKXg"/>
+    <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#//Register"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OtY0s0uAEeKbI502JqXKXg" x="475" y="35" width="403" height="168"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_SvrlcEuAEeKbI502JqXKXg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_SvsMgEuAEeKbI502JqXKXg" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_SvszkEuAEeKbI502JqXKXg" type="5003">
+      <children xmi:type="notation:Node" xmi:id="_TjqnIEuAEeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_TjrOMEuAEeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_TjrOMUuAEeKbI502JqXKXg" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_TjrOMkuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_TjrOM0uAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_TjrONEuAEeKbI502JqXKXg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_TjrONUuAEeKbI502JqXKXg" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_TjrONkuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_TjrON0uAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_Tjr1QEuAEeKbI502JqXKXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_TjqnIUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//Controls/Control"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TjqnIkuAEeKbI502JqXKXg" x="5" y="12"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_SvszkUuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_SvszkkuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Svszk0uAEeKbI502JqXKXg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_SvrlcUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_SvrlckuAEeKbI502JqXKXg"/>
+    <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#//Controls"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Svrlc0uAEeKbI502JqXKXg" x="35" y="470"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_b4WaIEuAEeKbI502JqXKXg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_b4XBMEuAEeKbI502JqXKXg" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_b4XBMUuAEeKbI502JqXKXg" type="5003">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_b4XBMkuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_b4XBM0uAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_b4XBNEuAEeKbI502JqXKXg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_b4WaIUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_b4WaIkuAEeKbI502JqXKXg"/>
+    <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#//gui"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_b4WaI0uAEeKbI502JqXKXg" x="499" y="481"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_czCgwEuAEeKbI502JqXKXg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_czDH0EuAEeKbI502JqXKXg" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_czDH0UuAEeKbI502JqXKXg" type="5003">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_czDH0kuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_czDH00uAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_czDH1EuAEeKbI502JqXKXg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_czCgwUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_czCgwkuAEeKbI502JqXKXg"/>
+    <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#//controller"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_czCgw0uAEeKbI502JqXKXg" x="670" y="485"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_pS6h0EuAEeKbI502JqXKXg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_pS-MMEuAEeKbI502JqXKXg" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_pS-MMUuAEeKbI502JqXKXg" type="5003">
+      <children xmi:type="notation:Node" xmi:id="_qbEcsEuAEeKbI502JqXKXg" type="2003">
+        <children xmi:type="notation:Node" xmi:id="_qbFDwEuAEeKbI502JqXKXg" type="4002"/>
+        <children xmi:type="notation:Node" xmi:id="_qbFq0EuAEeKbI502JqXKXg" type="5004">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_qbFq0UuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_qbFq0kuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_qbFq00uAEeKbI502JqXKXg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_qbGR4EuAEeKbI502JqXKXg" type="5005">
+          <styles xmi:type="notation:DrawerStyle" xmi:id="_qbGR4UuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_qbGR4kuAEeKbI502JqXKXg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_qbGR40uAEeKbI502JqXKXg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_qbEcsUuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+        <element xmi:type="ecore:EClass" href="MIPSimulator.ecore#//Parser/Parser"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qbEcskuAEeKbI502JqXKXg" x="9" y="11" width="173"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_pS-zQEuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_pS-zQUuAEeKbI502JqXKXg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_pS-zQkuAEeKbI502JqXKXg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_pS7I4EuAEeKbI502JqXKXg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_pS7I4UuAEeKbI502JqXKXg"/>
+    <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#//Parser"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pS7I4kuAEeKbI502JqXKXg" x="216" y="476" width="197" height="107"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_I9a2oUt_EeKbI502JqXKXg"/>
+  <element xmi:type="ecore:EPackage" href="MIPSimulator.ecore#/"/>
+</notation:Diagram>
