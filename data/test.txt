@@ -1,0 +1,11 @@
+add $t0,$t1, $t2
+sub
+and
+or
+nor
+slt
+lw
+sw
+beq
+nop
+exit
