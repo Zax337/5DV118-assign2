@@ -1,10 +1,12 @@
 package processor;
 
+import gui.MipsMainFrame;
 import gui.model.TableInstructionToDoModel;
 import gui.model.TableRegisterModel;
 import instruction.Instruction;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 import processor.alu.ALU;
 import processor.alu.ALUControl;
@@ -15,7 +17,7 @@ import processor.pc.PC;
 import processor.pc.PCAddUnit;
 import processor.register.Registers;
 
-public class MipsProcessor {
+public class MipsProcessor extends Observable{
 
 	private ArrayList<Instruction> _instructionsToDo;
 	private InstructionMemory _instructionMemory;
@@ -38,5 +40,11 @@ public class MipsProcessor {
 	
 	public  TableInstructionToDoModel getInstructionToDoTableModel(){
 		return new TableInstructionToDoModel(_instructionsToDo);
+	}
+	
+	public void execute(Instruction i){
+		i.execute(this);
+		setChanged();
+		notifyObservers();
 	}
 }

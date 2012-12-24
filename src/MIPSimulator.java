@@ -24,13 +24,11 @@ public final class MIPSimulator {
 	public static void main(String[] args) {
 		ArrayList<Instruction> ins = InstructionParser.parseFile("data/test.txt");
 		final MipsProcessor mp = new MipsProcessor(ins);
-		
-		
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MipsMainFrame frame = new MipsMainFrame(mp);
+					mp.addObserver(frame);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

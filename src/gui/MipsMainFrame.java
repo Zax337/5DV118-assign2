@@ -3,6 +3,10 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
@@ -21,15 +25,23 @@ import javax.swing.table.DefaultTableModel;
 
 import processor.MipsProcessor;
 
-public class MipsMainFrame extends JFrame {
+public class MipsMainFrame extends JFrame implements Observer{
 
-	private JPanel contentPane;
-	private JTable instructionTable;
+	private JPanel _contentPane;
+	private JTable _instructionTable;
 	private JTable table;
-	private JTable registerTable;
+	private JTable _registerTable;
 	private JTable table_2;
 	private MipsProcessor _processor;
 
+	public JTable getInstructionTable(){
+		return _instructionTable;
+	}
+	
+	public void setProcessor(MipsProcessor p){
+		_processor = p;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -40,9 +52,9 @@ public class MipsMainFrame extends JFrame {
 		setName("mainFrame");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		_contentPane = new JPanel();
+		_contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(_contentPane);
 		
 		JPanel instructionPanel = new JPanel();
 		instructionPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -64,7 +76,7 @@ public class MipsMainFrame extends JFrame {
 		
 		JPanel controlsPanel = new JPanel();
 		controlsPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		GroupLayout gl_contentPane = new GroupLayout(_contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
@@ -308,9 +320,9 @@ public class MipsMainFrame extends JFrame {
 		JScrollPane scrollPane_2 = new JScrollPane();
 		panel_1.add(scrollPane_2, BorderLayout.CENTER);
 		
-		registerTable = new JTable();
-		registerTable.setModel(processor.getRegistersTableModel());
-		scrollPane_2.setViewportView(registerTable);
+		_registerTable = new JTable();
+		_registerTable.setModel(processor.getRegistersTableModel());
+		scrollPane_2.setViewportView(_registerTable);
 		registerPanel.setLayout(gl_registerPanel);
 		
 		JLabel lblNumericalFields = new JLabel("Numerical fields");
@@ -422,10 +434,20 @@ public class MipsMainFrame extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		arrayInsContainer.add(scrollPane, BorderLayout.CENTER);
 		
-		instructionTable = new JTable();
-		instructionTable.setModel(processor.getInstructionToDoTableModel());
-		scrollPane.setViewportView(instructionTable);
+		_instructionTable = new JTable();
+		_instructionTable.setModel(processor.getInstructionToDoTableModel());
+		scrollPane.setViewportView(_instructionTable);
 		instructionPanel.setLayout(gl_instructionPanel);
-		contentPane.setLayout(gl_contentPane);
+		_contentPane.setLayout(gl_contentPane);
+	}
+
+	@Override
+	public void update(Observable observable, Object obj) {
+		if(observable instanceof MipsProcessor){
+			MipsProcessor mp = (MipsProcessor) observable;
+			_instructionTable.setModel(mp.getInstructionToDoTableModel());
+			_registerTable.setModel(mp.getRegistersTableModel());
+		}
+		
 	}
 }

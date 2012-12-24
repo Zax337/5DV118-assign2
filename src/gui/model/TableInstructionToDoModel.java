@@ -7,6 +7,8 @@ import instruction.Instruction;
 
 import java.util.ArrayList;
 
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 
 import processor.register.Registers;
@@ -15,7 +17,7 @@ import processor.register.Registers;
  * @author Acid Flow
  *
  */
-public class TableInstructionToDoModel extends AbstractTableModel {
+public class TableInstructionToDoModel extends AbstractTableModel implements TableModelListener{
 
 	private static final long serialVersionUID = 1L;
 	private static final String[] COL_HEADERS = {"Instruction"};
@@ -57,6 +59,11 @@ public class TableInstructionToDoModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int row, int col) {
 		return _data[row][col];
+	}
+
+	@Override
+	public void tableChanged(TableModelEvent e) {
+		System.out.println("test");
 	}
 
 }
