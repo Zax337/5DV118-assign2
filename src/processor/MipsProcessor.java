@@ -1,5 +1,6 @@
 package processor;
 
+import gui.model.TableRegisterModel;
 import processor.alu.ALU;
 import processor.alu.ALUControl;
 import processor.controls.Control;
@@ -20,5 +21,11 @@ public class MipsProcessor {
 	private Registers _registers;
 	private Control _control;
 
+	public MipsProcessor(){
+		_registers = new Registers();
+	}
 	
+	public TableRegisterModel getRegistersTableModel(){
+		return new TableRegisterModel(_registers);
+	}
 }

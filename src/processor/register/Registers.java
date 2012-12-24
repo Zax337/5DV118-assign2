@@ -13,42 +13,43 @@ public class Registers {
 
 	private static final int NB_REGISTER = 32;
 	private static final int[] MUST_BE_PRESERVED = {16,17,18,19,20,21,22,23,28,29,30};
-	private static final HashMap<String, Integer> REGISTERS = new HashMap<String, Integer>();
+	public static final HashMap<String, Integer> REGISTERS = new HashMap<String, Integer>();
+	public static final HashMap<Integer, String> REGISTERS_INT = new HashMap<Integer, String>();
 
 	// Hashmap initialisation
 	static{
-		REGISTERS.put("$zero", 0); 	// Constant 0
-		REGISTERS.put("$at", 1);	// Assembler temporary
-		REGISTERS.put("$v0", 2); 	// values for functiuon returns and expression evaluation
-		REGISTERS.put("$v1", 3);	
-		REGISTERS.put("$a0", 4);	// Function arguments
-		REGISTERS.put("$a1", 5);	
-		REGISTERS.put("$a2", 6);
-		REGISTERS.put("$a3", 7);
-		REGISTERS.put("$t0", 8);	// Temporaries
-		REGISTERS.put("$t1", 9);
-		REGISTERS.put("$t2", 10);
-		REGISTERS.put("$t3", 11);
-		REGISTERS.put("$t4", 12);
-		REGISTERS.put("$t5", 13);
-		REGISTERS.put("$t6", 14);
-		REGISTERS.put("$t7", 15);
-		REGISTERS.put("$s0", 16);	// Saved temporaries
-		REGISTERS.put("$s1", 17);
-		REGISTERS.put("$s2", 18);
-		REGISTERS.put("$s3", 19);
-		REGISTERS.put("$s4", 20);
-		REGISTERS.put("$s5", 21);
-		REGISTERS.put("$s6", 22);
-		REGISTERS.put("$s7", 23);
-		REGISTERS.put("$t8", 24);	// Temporaries
-		REGISTERS.put("$t9", 25);
-		REGISTERS.put("$k0", 26);	// Reserved for OS kernel
-		REGISTERS.put("$k1", 27);
-		REGISTERS.put("$gp", 28);	// Global pointer
-		REGISTERS.put("$sp", 29);	// Stack pointer
-		REGISTERS.put("$fp", 30);	// Frame pointer
-		REGISTERS.put("$ra", 31);	// Return address
+		REGISTERS.put("$zero", 0);	REGISTERS_INT.put(0, "$zero"); 	// Constant 0
+		REGISTERS.put("$at", 1);	REGISTERS_INT.put(1,"$at");	// Assembler temporary
+		REGISTERS.put("$v0", 2);	REGISTERS_INT.put(2,"$v0");	// values for functiuon returns and expression evaluation
+		REGISTERS.put("$v1", 3);	REGISTERS_INT.put(3,"$v1");	
+		REGISTERS.put("$a0", 4);	REGISTERS_INT.put(4,"$a0");	// Function arguments
+		REGISTERS.put("$a1", 5);	REGISTERS_INT.put(5,"$a1");
+		REGISTERS.put("$a2", 6);	REGISTERS_INT.put(6,"$a2");
+		REGISTERS.put("$a3", 7);	REGISTERS_INT.put(7,"$a3");
+		REGISTERS.put("$t0", 8);	REGISTERS_INT.put(8,"$t0");		// Temporaries
+		REGISTERS.put("$t1", 9);	REGISTERS_INT.put(9,"$t1");
+		REGISTERS.put("$t2", 10);	REGISTERS_INT.put(10,"$t2");
+		REGISTERS.put("$t3", 11);	REGISTERS_INT.put(11,"$t3");
+		REGISTERS.put("$t4", 12);	REGISTERS_INT.put(12,"$t4");
+		REGISTERS.put("$t5", 13);	REGISTERS_INT.put(13,"$t5");
+		REGISTERS.put("$t6", 14);	REGISTERS_INT.put(14,"$t6");
+		REGISTERS.put("$t7", 15);	REGISTERS_INT.put(15,"$t7");
+		REGISTERS.put("$s0", 16);	REGISTERS_INT.put(16,"$s0");		// Saved temporaries
+		REGISTERS.put("$s1", 17);	REGISTERS_INT.put(17,"$s1");
+		REGISTERS.put("$s2", 18);	REGISTERS_INT.put(18,"$s2");
+		REGISTERS.put("$s3", 19);	REGISTERS_INT.put(19,"$s3");
+		REGISTERS.put("$s4", 20);	REGISTERS_INT.put(20,"$s4");
+		REGISTERS.put("$s5", 21);	REGISTERS_INT.put(21,"$s5");
+		REGISTERS.put("$s6", 22);	REGISTERS_INT.put(22,"$s6");
+		REGISTERS.put("$s7", 23);	REGISTERS_INT.put(23,"$s7");
+		REGISTERS.put("$t8", 24);	REGISTERS_INT.put(24,"$t8");		// Temporaries
+		REGISTERS.put("$t9", 25);	REGISTERS_INT.put(25,"$t9");
+		REGISTERS.put("$k0", 26);	REGISTERS_INT.put(26,"$k0");		// Reserved for OS kernel
+		REGISTERS.put("$k1", 27);	REGISTERS_INT.put(27,"$k1");
+		REGISTERS.put("$gp", 28);	REGISTERS_INT.put(28,"$gp");		// Global pointer
+		REGISTERS.put("$sp", 29);	REGISTERS_INT.put(29,"$sp");		// Stack pointer
+		REGISTERS.put("$fp", 30);	REGISTERS_INT.put(30,"$fp");		// Frame pointer
+		REGISTERS.put("$ra", 31);	REGISTERS_INT.put(31,"$ra");		// Return address
 	}
 
 	private int[] _registerValues;
@@ -113,4 +114,6 @@ public class Registers {
 		}
 		return false;
 	}
+	
+	
 }

@@ -19,18 +19,22 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import processor.MipsProcessor;
+
 public class MipsMainFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTable instructionTable;
 	private JTable table;
-	private JTable table_1;
+	private JTable registerTable;
 	private JTable table_2;
+	private MipsProcessor _processor;
 
 	/**
 	 * Create the frame.
 	 */
-	public MipsMainFrame() {
+	public MipsMainFrame(MipsProcessor processor) {
+		_processor = processor;
 		setTitle("MipSimulator");
 		setPreferredSize(new Dimension(800, 600));
 		setName("mainFrame");
@@ -304,47 +308,9 @@ public class MipsMainFrame extends JFrame {
 		JScrollPane scrollPane_2 = new JScrollPane();
 		panel_1.add(scrollPane_2, BorderLayout.CENTER);
 		
-		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"New column", "New column"
-			}
-		));
-		scrollPane_2.setViewportView(table_1);
+		registerTable = new JTable();
+		registerTable.setModel(processor.getRegistersTableModel());
+		scrollPane_2.setViewportView(registerTable);
 		registerPanel.setLayout(gl_registerPanel);
 		
 		JLabel lblNumericalFields = new JLabel("Numerical fields");
@@ -457,63 +423,6 @@ public class MipsMainFrame extends JFrame {
 		arrayInsContainer.add(scrollPane, BorderLayout.CENTER);
 		
 		instructionTable = new JTable();
-		instructionTable.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-				{null},
-			},
-			new String[] {
-				"New column"
-			}
-		));
 		scrollPane.setViewportView(instructionTable);
 		instructionPanel.setLayout(gl_instructionPanel);
 		contentPane.setLayout(gl_contentPane);
