@@ -3,15 +3,19 @@
  */
 package instruction.rformat;
 
+import processor.MipsProcessor;
+
 /**
  * @author Acid Flow
  *
  */
-public class SubInstruction extends RInstruction {
+public final class SubInstruction extends RInstruction {
 
 	public SubInstruction() {
 		super(null);
 	}
 
-	
+	public void execute(MipsProcessor processor){
+		//TODO
+	}
 }

@@ -3,6 +3,7 @@
  */
 package instruction.rformat;
 
+import processor.MipsProcessor;
 import instruction.Instruction;
 
 /**
@@ -15,4 +16,7 @@ public abstract class RInstruction extends Instruction {
 		super(mnemonic);
 	}
 
+	public void execute(MipsProcessor processor){
+		//TODO
+	}
 }

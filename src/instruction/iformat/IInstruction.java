@@ -15,5 +15,7 @@ public abstract class IInstruction extends Instruction {
 	protected IInstruction(String mnemonic) {
 		super(mnemonic);
 	}
+	
+	
 
 }

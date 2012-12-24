@@ -3,6 +3,8 @@
  */
 package instruction.iformat;
 
+import processor.MipsProcessor;
+
 /**
  * @author Acid Flow
  *
@@ -14,4 +16,7 @@ public final class BeqInstruction extends IInstruction {
 		super(null);
 	}
 
+	public void execute(MipsProcessor processor){
+		//TODO
+	}
 }
