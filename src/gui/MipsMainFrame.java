@@ -423,6 +423,7 @@ public class MipsMainFrame extends JFrame {
 		arrayInsContainer.add(scrollPane, BorderLayout.CENTER);
 		
 		instructionTable = new JTable();
+		instructionTable.setModel(processor.getInstructionToDoTableModel());
 		scrollPane.setViewportView(instructionTable);
 		instructionPanel.setLayout(gl_instructionPanel);
 		contentPane.setLayout(gl_contentPane);

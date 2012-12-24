@@ -18,6 +18,9 @@ public abstract class Instruction {
 		_mnemonic = mnemonic;
 	}
 	
+	public String getMnemonic() {
+		return _mnemonic;
+	}
 	
 	public void setMnemonic(String mnemonic){
 		_mnemonic = mnemonic;
@@ -32,4 +35,7 @@ public abstract class Instruction {
 	public String toString(){
 		return "Instruction [ class = "+ getClass().getSimpleName() + ", _mnemonic = "+ _mnemonic +"]\n";
 	}
+
+
+	
 }
