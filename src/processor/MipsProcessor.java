@@ -4,6 +4,7 @@ import gui.MipsMainFrame;
 import gui.model.TableControlsModel;
 import gui.model.TableInstructionToDoModel;
 import gui.model.TableRegisterModel;
+import instruction.ExitInstruction;
 import instruction.Instruction;
 
 import java.util.ArrayList;
@@ -33,6 +34,13 @@ public class MipsProcessor extends Observable{
 
 	public MipsProcessor(ArrayList<Instruction> ins){
 		_instructionsToDo = ins;
+		_instructionMemory = new InstructionMemory();
+		for(Instruction i : ins){
+			if(!(i instanceof ExitInstruction)){
+				_instructionMemory.addInstructionToMemory(i.getBinaryRepresentation());
+			}
+		}
+		System.out.println(_instructionMemory.getInstruction(0));
 		_registers = new Registers();
 		_indexCurrentInstruction = -1;
 		_control = new Control();

@@ -16,7 +16,6 @@ public abstract class IInstruction extends Instruction {
 	protected String _rs;
 	protected String _rt;
 	protected String _offset;
-	protected String _binaryRepresentation;
 
 	protected IInstruction(String mnemonic) {
 		super(mnemonic);

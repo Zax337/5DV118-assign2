@@ -33,6 +33,10 @@ public abstract class Instruction {
 		_mnemonic = mnemonic;
 	}
 	
+	public String getBinaryRepresentation(){
+		return _binaryRepresentation;
+	}
+	
 	/**
 	 * Execute the instruction
 	 * @param processor the processor on which the instruction will be executed
