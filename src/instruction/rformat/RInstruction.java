@@ -17,14 +17,14 @@ public abstract class RInstruction extends Instruction {
 	protected static final int OPCODE_NB_BITS = 6;
 	protected static final int FUNC_CODE_NB_BITS = 6;
 	protected static final int SHAMT_NB_BIT = 5;
-	private static final int REGISTER_NB_BITS = 5;
+	protected static final int REGISTER_NB_BITS = 5;
 	private static final int REGISTER_RS_POS = 1;
 	private static final int REGISTER_RD_POS = 0;
 	private static final int REGISTER_RT_POS = 2;
 
-	private String _rs;
-	private String _rt;
-	private String _rd;
+	protected String _rs;
+	protected String _rt;
+	protected String _rd;
 	protected String _shamt;
 	protected String _funcCode;
 

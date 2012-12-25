@@ -58,4 +58,8 @@ public class MipsProcessor extends Observable{
 		setChanged();
 		notifyObservers();
 	}
+	
+	public int getIndexCurrentInstruction(){
+		return _indexCurrentInstruction;
+	}
 }

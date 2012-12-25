@@ -474,16 +474,17 @@ public class MipsMainFrame extends JFrame implements Observer{
 		System.out.println("Processor changed !");
 		if(observable instanceof MipsProcessor){
 			_processor = (MipsProcessor) observable;
-			_instructionTable.setModel(_processor.getInstructionToDoTableModel());
-			_registerTable.setModel(_processor.getRegistersTableModel());
-			_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
+			refresh();
 		}
 		
 	}
 
 	public void refresh() {
 		_instructionTable.setModel(_processor.getInstructionToDoTableModel());
+		_instructionTable.setRowSelectionInterval(_processor.getIndexCurrentInstruction(), _processor.getIndexCurrentInstruction());
 		_registerTable.setModel(_processor.getRegistersTableModel());
-		_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
+		if(_processor.getIndexCurrentInstruction() != -1){
+			_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
+		}
 	}
 }

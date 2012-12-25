@@ -5,12 +5,12 @@ package parser;
 
 import instruction.ExitInstruction;
 import instruction.Instruction;
-import instruction.NopInstruction;
 import instruction.iformat.BeqInstruction;
 import instruction.iformat.LwInstruction;
 import instruction.iformat.SwInstruction;
 import instruction.rformat.AddInstruction;
 import instruction.rformat.AndInstruction;
+import instruction.rformat.NopInstruction;
 import instruction.rformat.NorInstruction;
 import instruction.rformat.OrInstruction;
 import instruction.rformat.SltInstruction;

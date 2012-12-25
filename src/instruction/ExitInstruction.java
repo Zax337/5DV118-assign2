@@ -3,6 +3,11 @@
  */
 package instruction;
 
+import gui.model.TableNumericalFieldsExitModel;
+import gui.model.TableNumericalFieldsRFormatModel;
+
+import javax.swing.table.AbstractTableModel;
+
 import processor.MipsProcessor;
 
 /**
@@ -25,5 +30,10 @@ public final class ExitInstruction extends Instruction {
 
 	public void execute(MipsProcessor processor){
 		//TODO
+	}
+
+	@Override
+	public AbstractTableModel getNumericalFieldsTableModel() {
+		return new TableNumericalFieldsExitModel();
 	}
 }
