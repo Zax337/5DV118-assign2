@@ -3,9 +3,11 @@
  */
 package instruction.rformat;
 
+import gui.model.TableNumericalFieldsRFormatModel;
+import instruction.Instruction;
 import processor.MipsProcessor;
 import processor.register.Registers;
-import instruction.Instruction;
+import config.Config;
 
 /**
  * @author Acid Flow
@@ -64,6 +66,58 @@ public abstract class RInstruction extends Instruction {
 
 	protected void parseRDtoBinaryString(){
 		_rd = parseRegisterToBinaryString(REGISTER_RD_POS);
+	}
+	
+	public String getOpcodeValue() {
+		if(Config.DISPLAY_HEX){
+			return "0x" + Integer.toHexString(Integer.parseInt(_opCode,2));
+		}else{
+			return Integer.toString(Integer.parseInt(_opCode,2));
+		}
+	}
+	
+	public String getRSValue() {
+		if(Config.DISPLAY_HEX){
+			return "0x" + Integer.toHexString(Integer.parseInt(_rs,2));
+		}else{
+			return Integer.toString(Integer.parseInt(_rs,2));
+		}
+	}
+	
+	public String getRTValue() {
+		if(Config.DISPLAY_HEX){
+			return "0x" + Integer.toHexString(Integer.parseInt(_rt,2));
+		}else{
+			return Integer.toString(Integer.parseInt(_rt,2));
+		}
+	}
+	
+	public String getRDValue() {
+		if(Config.DISPLAY_HEX){
+			return "0x" + Integer.toHexString(Integer.parseInt(_rd,2));
+		}else{
+			return Integer.toString(Integer.parseInt(_rd,2));
+		}
+	}
+	
+	public String getShamtValue() {
+		if(Config.DISPLAY_HEX){
+			return "0x" + Integer.toHexString(Integer.parseInt(_shamt,2));
+		}else{
+			return Integer.toString(Integer.parseInt(_shamt,2));
+		}
+	}
+	
+	public String getFuncCodeValue() {
+		if(Config.DISPLAY_HEX){
+			return "0x" + Integer.toHexString(Integer.parseInt(_funcCode,2));
+		}else{
+			return Integer.toString(Integer.parseInt(_funcCode,2));
+		}
+	}
+	
+	public TableNumericalFieldsRFormatModel getNumericalFieldsTableModel(){
+		return new TableNumericalFieldsRFormatModel(this);
 	}
 
 	public void execute(MipsProcessor processor){

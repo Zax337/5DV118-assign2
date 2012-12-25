@@ -23,16 +23,22 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controller.DisplaySwitchController;
+
 import processor.MipsProcessor;
 
 public class MipsMainFrame extends JFrame implements Observer{
 
+	public static final String DISPLAY_HEX = "Hexadecimal";
+	public static final String DISPLAY_DEC = "Decimal";
+	
 	private JPanel _contentPane;
 	private JTable _instructionTable;
 	private JTable table;
 	private JTable _registerTable;
 	private JTable table_2;
 	private MipsProcessor _processor;
+	private JTable _numericalFieldsTable;
 
 	public JTable getInstructionTable(){
 		return _instructionTable;
@@ -106,31 +112,40 @@ public class MipsMainFrame extends JFrame implements Observer{
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(pcPanel, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(numericalFieldsPanel, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(numericalFieldsPanel, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addComponent(memoryPanel, 0, 0, Short.MAX_VALUE)
-								.addComponent(registerPanel, GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))))
+								.addComponent(registerPanel, GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))))
 					.addGap(3))
 		);
 		
 		JLabel lblOptions = new JLabel("Options");
 		
 		JButton btnStep = new JButton("Step");
+		btnStep.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				_processor.execute();
+				
+			}
+		});
 		
 		JButton btnRun = new JButton("Run");
 		
 		JButton btnReset = new JButton("Reset");
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Decimal", "Hexadecimal"}));
+		JComboBox comboBoxDisplay = new JComboBox();
+		comboBoxDisplay.setModel(new DefaultComboBoxModel(new String[] {DISPLAY_DEC, DISPLAY_HEX}));
+		comboBoxDisplay.addActionListener(new DisplaySwitchController(this));
 		GroupLayout gl_optionsPanel = new GroupLayout(optionsPanel);
 		gl_optionsPanel.setHorizontalGroup(
 			gl_optionsPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_optionsPanel.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_optionsPanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(comboBox, 0, 85, Short.MAX_VALUE)
+						.addComponent(comboBoxDisplay, 0, 85, Short.MAX_VALUE)
 						.addGroup(gl_optionsPanel.createParallelGroup(Alignment.LEADING, false)
 							.addComponent(lblOptions)
 							.addComponent(btnReset, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -150,7 +165,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 					.addGap(52)
 					.addComponent(lblOptions)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(comboBoxDisplay, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(368, Short.MAX_VALUE))
 		);
 		optionsPanel.setLayout(gl_optionsPanel);
@@ -326,21 +341,34 @@ public class MipsMainFrame extends JFrame implements Observer{
 		registerPanel.setLayout(gl_registerPanel);
 		
 		JLabel lblNumericalFields = new JLabel("Numerical fields");
+		
+		JPanel panel_3 = new JPanel();
 		GroupLayout gl_numericalFieldsPanel = new GroupLayout(numericalFieldsPanel);
 		gl_numericalFieldsPanel.setHorizontalGroup(
 			gl_numericalFieldsPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_numericalFieldsPanel.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblNumericalFields)
-					.addContainerGap(354, Short.MAX_VALUE))
+					.addGroup(gl_numericalFieldsPanel.createParallelGroup(Alignment.LEADING)
+						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+						.addComponent(lblNumericalFields))
+					.addContainerGap())
 		);
 		gl_numericalFieldsPanel.setVerticalGroup(
 			gl_numericalFieldsPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_numericalFieldsPanel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNumericalFields)
-					.addContainerGap(26, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+					.addContainerGap())
 		);
+		panel_3.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane scrollPane_4 = new JScrollPane();
+		panel_3.add(scrollPane_4, BorderLayout.CENTER);
+		
+		_numericalFieldsTable = new JTable();
+		scrollPane_4.setViewportView(_numericalFieldsTable);
 		numericalFieldsPanel.setLayout(gl_numericalFieldsPanel);
 		
 		JLabel lblPc = new JLabel("PC");
@@ -445,10 +473,17 @@ public class MipsMainFrame extends JFrame implements Observer{
 	public void update(Observable observable, Object obj) {
 		System.out.println("Processor changed !");
 		if(observable instanceof MipsProcessor){
-			MipsProcessor mp = (MipsProcessor) observable;
-			_instructionTable.setModel(mp.getInstructionToDoTableModel());
-			_registerTable.setModel(mp.getRegistersTableModel());
+			_processor = (MipsProcessor) observable;
+			_instructionTable.setModel(_processor.getInstructionToDoTableModel());
+			_registerTable.setModel(_processor.getRegistersTableModel());
+			_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
 		}
 		
+	}
+
+	public void refresh() {
+		_instructionTable.setModel(_processor.getInstructionToDoTableModel());
+		_registerTable.setModel(_processor.getRegistersTableModel());
+		_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
 	}
 }

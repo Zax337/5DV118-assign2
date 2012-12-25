@@ -1,11 +1,11 @@
 add $t0,$t1,$t2
-sub
-and
-or
-nor
-slt
+sub $t0,$t1,$t2
+and $t0,$t1,$t2
+or $t0,$t1,$t2
+nor $t0,$t1,$t2
+slt $t0,$t1,$t2
 lw $t0, 16
-sw
-beq
+sw $t0, 32
+beq $zero, $v0, 4
 nop
 exit

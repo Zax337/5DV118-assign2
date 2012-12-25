@@ -20,6 +20,7 @@ import processor.register.Registers;
 public class MipsProcessor extends Observable{
 
 	private ArrayList<Instruction> _instructionsToDo;
+	private int _indexCurrentInstruction;
 	private InstructionMemory _instructionMemory;
 	private DataMemory _dataMemory;
 	private ALU _alu;
@@ -32,18 +33,28 @@ public class MipsProcessor extends Observable{
 	public MipsProcessor(ArrayList<Instruction> ins){
 		_instructionsToDo = ins;
 		_registers = new Registers();
+		_indexCurrentInstruction = -1;
 	}
-	
+
 	public TableRegisterModel getRegistersTableModel(){
 		return new TableRegisterModel(_registers);
 	}
-	
+
 	public  TableInstructionToDoModel getInstructionToDoTableModel(){
 		return new TableInstructionToDoModel(_instructionsToDo);
 	}
 	
-	public void execute(Instruction i){
-		i.execute(this);
+	public Instruction getCurrentInstruction(){
+		return _instructionsToDo.get(_indexCurrentInstruction);
+	}
+
+	public void execute(){
+		if(_indexCurrentInstruction != -1){
+			Instruction i = _instructionsToDo.get(_indexCurrentInstruction);
+			i.execute(this);
+			
+		}
+		_indexCurrentInstruction++;
 		setChanged();
 		notifyObservers();
 	}

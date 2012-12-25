@@ -3,6 +3,8 @@
  */
 package instruction;
 
+import javax.swing.table.AbstractTableModel;
+
 import processor.MipsProcessor;
 
 
@@ -40,6 +42,8 @@ public abstract class Instruction {
 	protected abstract void parseArguments();
 	
 	public abstract void generateBinaryRepresentation();
+	
+	public abstract AbstractTableModel getNumericalFieldsTableModel();
 	
 	public String toString(){
 		return "Instruction [ class = "+ getClass().getSimpleName() + ",\n" +
