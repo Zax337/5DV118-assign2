@@ -34,7 +34,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 	
 	private JPanel _contentPane;
 	private JTable _instructionTable;
-	private JTable table;
+	private JTable _controlsTable;
 	private JTable _registerTable;
 	private JTable table_2;
 	private MipsProcessor _processor;
@@ -416,23 +416,9 @@ public class MipsMainFrame extends JFrame implements Observer{
 		JScrollPane scrollPane_1 = new JScrollPane();
 		panel.add(scrollPane_1, BorderLayout.CENTER);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"New column", "New column"
-			}
-		));
-		scrollPane_1.setViewportView(table);
+		_controlsTable = new JTable();
+		scrollPane_1.setViewportView(_controlsTable);
+		_controlsTable.setModel(_processor.getControlsTableModel());
 		controlsPanel.setLayout(gl_controlsPanel);
 		
 		JLabel lblInstructions = new JLabel("Instructions");
@@ -483,6 +469,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 		_instructionTable.setModel(_processor.getInstructionToDoTableModel());
 		_instructionTable.setRowSelectionInterval(_processor.getIndexCurrentInstruction(), _processor.getIndexCurrentInstruction());
 		_registerTable.setModel(_processor.getRegistersTableModel());
+		_controlsTable.setModel(_processor.getControlsTableModel());
 		if(_processor.getIndexCurrentInstruction() != -1){
 			_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
 		}

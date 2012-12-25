@@ -1,6 +1,7 @@
 package processor;
 
 import gui.MipsMainFrame;
+import gui.model.TableControlsModel;
 import gui.model.TableInstructionToDoModel;
 import gui.model.TableRegisterModel;
 import instruction.Instruction;
@@ -34,6 +35,11 @@ public class MipsProcessor extends Observable{
 		_instructionsToDo = ins;
 		_registers = new Registers();
 		_indexCurrentInstruction = -1;
+		_control = new Control();
+	}
+	
+	public Control getControls(){
+		return _control;
 	}
 
 	public TableRegisterModel getRegistersTableModel(){
@@ -44,6 +50,10 @@ public class MipsProcessor extends Observable{
 		return new TableInstructionToDoModel(_instructionsToDo);
 	}
 	
+	public  TableControlsModel getControlsTableModel(){
+		return new TableControlsModel(_control);
+	}
+	
 	public Instruction getCurrentInstruction(){
 		return _instructionsToDo.get(_indexCurrentInstruction);
 	}
@@ -52,7 +62,6 @@ public class MipsProcessor extends Observable{
 		if(_indexCurrentInstruction != -1){
 			Instruction i = _instructionsToDo.get(_indexCurrentInstruction);
 			i.execute(this);
-			
 		}
 		_indexCurrentInstruction++;
 		setChanged();

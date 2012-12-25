@@ -116,11 +116,14 @@ public abstract class RInstruction extends Instruction {
 		}
 	}
 	
+	public void activateControlsLines(MipsProcessor p){
+		p.getControls().disableAllControls();
+		p.getControls().enableRegDst();
+		p.getControls().enableAluOp1();
+		p.getControls().enableRegWrite();
+	}
+	
 	public TableNumericalFieldsRFormatModel getNumericalFieldsTableModel(){
 		return new TableNumericalFieldsRFormatModel(this);
-	}
-
-	public void execute(MipsProcessor processor){
-		//TODO
 	}
 }

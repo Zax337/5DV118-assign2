@@ -23,6 +23,6 @@ public final class SubInstruction extends RInstruction {
 	}
 
 	public void execute(MipsProcessor processor){
-		//TODO
+		activateControlsLines(processor);
 	}
 }

@@ -29,9 +29,7 @@ public final class SwInstruction extends IInstruction {
 		_opCode = extendToMaxBits(Integer.toBinaryString(OPCODE), OPCODE_NB_BITS);
 	}
 
-	public void execute(MipsProcessor processor){
-		//TODO
-	}
+	
 
 	protected void parseArguments(){
 		parseRTtoBinaryString();
@@ -55,5 +53,15 @@ public final class SwInstruction extends IInstruction {
 			offsetString = offsetString.split(",")[OFFSET_POS].trim();
 			_offset = extendToMaxBits(Integer.toBinaryString(Integer.parseInt(offsetString)), OFFSET_NB_BITS);
 		}
+	}
+	
+	public void activateControlsLines(MipsProcessor p){
+		p.getControls().disableAllControls();
+		p.getControls().enableMemWrite();
+		p.getControls().enableAluSrc();
+	}
+	
+	public void execute(MipsProcessor processor){
+		activateControlsLines(processor);
 	}
 }

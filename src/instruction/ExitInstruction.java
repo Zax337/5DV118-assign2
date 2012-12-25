@@ -36,4 +36,8 @@ public final class ExitInstruction extends Instruction {
 	public AbstractTableModel getNumericalFieldsTableModel() {
 		return new TableNumericalFieldsExitModel();
 	}
+	
+	public void activateControlsLines(MipsProcessor p){
+		p.getControls().disableAllControls();
+	}
 }

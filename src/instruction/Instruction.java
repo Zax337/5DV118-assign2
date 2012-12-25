@@ -44,6 +44,7 @@ public abstract class Instruction {
 	public abstract void generateBinaryRepresentation();
 	
 	public abstract AbstractTableModel getNumericalFieldsTableModel();
+	public abstract void activateControlsLines(MipsProcessor p);
 	
 	public String toString(){
 		return "Instruction [ class = "+ getClass().getSimpleName() + ",\n" +

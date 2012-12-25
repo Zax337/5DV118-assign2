@@ -23,6 +23,6 @@ public final class NorInstruction extends RInstruction {
 	}
 
 	public void execute(MipsProcessor processor){
-		//TODO
+		activateControlsLines(processor);
 	}
 }
