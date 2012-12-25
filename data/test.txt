@@ -4,7 +4,7 @@ and
 or
 nor
 slt
-lw
+lw $t0, 16
 sw
 beq
 nop

@@ -56,6 +56,7 @@ public class InstructionParser {
 				if(INSTRUCTIONS.containsKey(insPart[0])){
 					Instruction i = (Instruction) INSTRUCTIONS.get(insPart[0]).newInstance();
 					i.setMnemonic(ins);
+					i.generateBinaryRepresentation();
 					instructionList.add(i);
 				}
 			}

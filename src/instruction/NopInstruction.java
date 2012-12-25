@@ -15,6 +15,14 @@ public final class NopInstruction extends Instruction {
 		super(null);
 	}
 
+	public void generateBinaryRepresentation(){
+
+	}
+
+	public void parseArguments(){
+
+	}
+
 	public void execute(MipsProcessor processor){
 		//TODO
 	}

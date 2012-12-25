@@ -443,6 +443,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 
 	@Override
 	public void update(Observable observable, Object obj) {
+		System.out.println("Processor changed !");
 		if(observable instanceof MipsProcessor){
 			MipsProcessor mp = (MipsProcessor) observable;
 			_instructionTable.setModel(mp.getInstructionToDoTableModel());

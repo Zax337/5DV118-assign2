@@ -11,8 +11,13 @@ import processor.MipsProcessor;
  *
  */
 public abstract class Instruction {
-
+	public static final String R_FORMAT = "R";
+	public static final String I_FORMAT = "I";
+	
 	protected String _mnemonic;
+	protected String _opCode;
+	protected String _format;
+	protected String _binaryRepresentation;
 	
 	protected Instruction(String mnemonic){
 		_mnemonic = mnemonic;
@@ -32,8 +37,22 @@ public abstract class Instruction {
 	 */
 	public abstract void execute(MipsProcessor processor);
 	
+	protected abstract void parseArguments();
+	
+	public abstract void generateBinaryRepresentation();
+	
 	public String toString(){
-		return "Instruction [ class = "+ getClass().getSimpleName() + ", _mnemonic = "+ _mnemonic +"]\n";
+		return "Instruction [ class = "+ getClass().getSimpleName() + ",\n" +
+				" _mnemonic = "+ _mnemonic +",\n" +
+						"binary = "+ _binaryRepresentation + "]\n";
+	}
+	
+	protected String extendToMaxBits(String binaryString, int bitNumber){
+		String ret = binaryString;
+		for(int i = binaryString.length(); i < bitNumber; i++){
+			ret = "0" + ret;
+		}
+		return ret;
 	}
 
 
