@@ -52,7 +52,7 @@ public class DataMemory {
 			_outputReadData = _inputAddress;
 		}else if(_inputMemRead && !_inputMemWrite){
 			// TODO Peut être de _inputAddress - 1 !!
-			_outputReadData = _memory[_inputAddress];
+			_outputReadData = loadWord();
 		}else if(!_inputMemRead && _inputMemWrite){
 			storeWord();
 		}
@@ -63,6 +63,15 @@ public class DataMemory {
 		_memory[_inputAddress+1] = createByteFromString(Instruction.extendToMaxBits(Integer.toBinaryString(_inputWriteData), 32).substring(8, 16));
 		_memory[_inputAddress+2] = createByteFromString(Instruction.extendToMaxBits(Integer.toBinaryString(_inputWriteData), 32).substring(16, 24));
 		_memory[_inputAddress+3] = createByteFromString(Instruction.extendToMaxBits(Integer.toBinaryString(_inputWriteData), 32).substring(24, 32));
+	}
+	
+	private int loadWord(){
+		int b = 0;
+		for(int i = 0; i < 4; i++){
+			b <<= 8;
+			b |= _memory[_inputAddress + i];
+		}
+		return b;
 	}
 	
 	private byte createByteFromString(String bin){

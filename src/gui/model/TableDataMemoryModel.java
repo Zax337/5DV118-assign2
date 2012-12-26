@@ -17,7 +17,7 @@ import processor.register.Registers;
 public class TableDataMemoryModel extends AbstractTableModel {
 
 	private static final long serialVersionUID = 1L;
-	private static final String[] COL_HEADERS = {"Address", "Value"};
+	private static final String[] COL_HEADERS = {"Address", "Value 1", "Value 2", "Value 3", "Value 4", };
 	private String[][] _data;
 
 	/**
@@ -25,15 +25,21 @@ public class TableDataMemoryModel extends AbstractTableModel {
 	 */
 	public TableDataMemoryModel(DataMemory m) {
 		byte[] memValue = m.getMemoryValue();
-		_data = new String[memValue.length][2];
-		for(int i = 0; i < memValue.length; i++){
+		_data = new String[memValue.length/4][5];
+		for(int i = 0; i < memValue.length/4; i++){
 			
 			if(Config.DISPLAY_HEX){
 				_data[i][0] = "0x" + Integer.toHexString(i);
-				_data[i][1] = "0x" + Integer.toHexString(memValue[i]);
+				_data[i][1] = "0x" + Integer.toHexString(memValue[i*4]);
+				_data[i][2] = "0x" + Integer.toHexString(memValue[4*i+1]);
+				_data[i][3] = "0x" + Integer.toHexString(memValue[4*i+2]);
+				_data[i][4] = "0x" + Integer.toHexString(memValue[4*i+3]);
 			}else{
 				_data[i][0] = i + "";
-				_data[i][1] = Integer.toString(memValue[i]);
+				_data[i][1] = Integer.toString(memValue[4*i]);
+				_data[i][2] = Integer.toString(memValue[4*i+1]);
+				_data[i][3] = Integer.toString(memValue[4*i+2]);
+				_data[i][4] = Integer.toString(memValue[4*i+3]);
 			}
 			
 		}
