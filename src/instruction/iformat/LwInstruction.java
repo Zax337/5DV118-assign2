@@ -22,6 +22,7 @@ public final class LwInstruction extends IInstruction {
 	private static final int REGISTER_RT_POS = 0;
 	
 	protected static final int RS_VALUE = 0;
+	protected static final int OFFSET_VALUE = 0;
 	
 	public LwInstruction() {
 		super(null);
@@ -48,7 +49,20 @@ public final class LwInstruction extends IInstruction {
 		int indexFirstSpace = _mnemonic.indexOf(" ");
 		String offsetString = _mnemonic.substring(indexFirstSpace).trim();
 		offsetString = offsetString.split(",")[OFFSET_POS].trim();
-		_offset = extendToMaxBits(Integer.toBinaryString(Integer.parseInt(offsetString)), OFFSET_NB_BITS);
+		
+		// 4($reg)
+		if(offsetString.matches("[0-9]+\\(.*\\)")){
+			_offset = extendToMaxBits(Integer.toBinaryString(Integer.parseInt(offsetString.split("\\(")[0])), OFFSET_NB_BITS);
+			_rs = extendToMaxBits(Integer.toBinaryString(Registers.REGISTERS.get(offsetString.split("\\(")[1].replace(")", ""))), REGISTER_NB_BITS);
+		// ($reg)
+		}else if(offsetString.matches("\\(.*\\)")){
+			_rs = extendToMaxBits(Integer.toBinaryString(Registers.REGISTERS.get(offsetString.split("\\(")[1].replace(")", ""))), REGISTER_NB_BITS);
+			_offset = extendToMaxBits(Integer.toBinaryString(OFFSET_VALUE), OFFSET_NB_BITS);
+		// 4
+		}else{
+			_rs = extendToMaxBits(Integer.toBinaryString(RS_VALUE), REGISTER_NB_BITS);
+			_offset = extendToMaxBits(Integer.toBinaryString(Integer.parseInt(offsetString)), OFFSET_NB_BITS);
+		}
 	}
 	
 	public void activateControlsLines(MipsProcessor p){

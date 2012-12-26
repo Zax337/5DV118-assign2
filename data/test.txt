@@ -4,8 +4,7 @@ and $t0,$t1,$t2
 or $t0,$t1,$t2
 nor $t0,$t1,$t2
 slt $t0,$t1,$t2
-lw $t0, 16
+lw $t0, 4($zero)
 sw $t0, 32
 beq $zero, $v0, 4
 nop
-exit

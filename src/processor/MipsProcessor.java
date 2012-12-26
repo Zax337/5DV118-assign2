@@ -2,6 +2,7 @@ package processor;
 
 import gui.MipsMainFrame;
 import gui.model.TableControlsModel;
+import gui.model.TableDataMemoryModel;
 import gui.model.TableInstructionToDoModel;
 import gui.model.TableRegisterModel;
 import instruction.ExitInstruction;
@@ -18,6 +19,7 @@ import processor.memory.InstructionMemory;
 import processor.pc.PC;
 import processor.pc.PCAddUnit;
 import processor.register.Registers;
+import processor.signextender.SignExtender;
 
 public class MipsProcessor extends Observable{
 
@@ -31,6 +33,7 @@ public class MipsProcessor extends Observable{
 	private PCAddUnit _pcAddUnit;
 	private Registers _registers;
 	private Control _control;
+	private SignExtender _signExtender;
 
 	public MipsProcessor(ArrayList<Instruction> ins){
 		_instructionsToDo = ins;
@@ -47,6 +50,7 @@ public class MipsProcessor extends Observable{
 		_pcAddUnit = new PCAddUnit();
 		_registers = new Registers();
 		_control = new Control();
+		_signExtender = new SignExtender();
 		setChanged();
 	}
 	
@@ -66,6 +70,10 @@ public class MipsProcessor extends Observable{
 		return new TableControlsModel(_control);
 	}
 	
+	public TableDataMemoryModel getDataMemoryTableModel(){
+		return new TableDataMemoryModel(_dataMemory);
+	}
+	
 	public Instruction getCurrentInstruction(){
 		return _instructionsToDo.get(_pc.getPCValue() / 4);
 	}
@@ -80,17 +88,20 @@ public class MipsProcessor extends Observable{
 		_registers.setInputWriteRegister(completeInstruction, _control);
 		_registers.setOuputReadData1();
 		_registers.setOuputReadData2();
+		_signExtender.setInputInstruction(completeInstruction);
+		_signExtender.setOutput();
 		_aluControl.setInputAluOp0(_control);
 		_aluControl.setInputAluOp1(_control);
 		_aluControl.setInputFunctionCode(completeInstruction);
 		_aluControl.setOutputOperation();
 		_alu.setInputReadData1(_registers);
-		_alu.setInputReadData2(_registers, _control);
+		_alu.setInputReadData2(_registers, _control, _signExtender);
 		_alu.executeOperation(_aluControl);
 		_dataMemory.setInputMemRead(_control);
 		_dataMemory.setInputMemWrite(_control);
 		_dataMemory.setInputAddress(_alu);
 		_dataMemory.setInputWriteData(_registers);
+		_dataMemory.setOutputReadData();
 		int out = _dataMemory.getOutput(_control, _alu);
 		_registers.setInputWriteData(out);
 		_registers.writeData();

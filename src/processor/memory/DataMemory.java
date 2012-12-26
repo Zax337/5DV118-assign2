@@ -13,7 +13,7 @@ import processor.register.Registers;
  */
 public class DataMemory {
 
-	private static final int MEMORY_SIZE = 1000;
+	public static final int MEMORY_SIZE = 1000;
 	private byte[] _memory;
 	private boolean _inputMemRead;
 	private boolean _inputMemWrite;
@@ -23,6 +23,11 @@ public class DataMemory {
 	
 	public DataMemory(){
 		_memory = new byte[MEMORY_SIZE];
+		_memory[4] = (byte) 0x10;
+	}
+	
+	public byte[] getMemoryValue(){
+		return _memory;
 	}
 	
 	public void setInputAddress(ALU alu){
@@ -44,6 +49,9 @@ public class DataMemory {
 	public void setOutputReadData(){
 		if(!_inputMemRead && !_inputMemWrite){
 			_outputReadData = _inputAddress;
+		}else if(_inputMemRead && !_inputMemWrite){
+			// TODO Peut être de _inputAddress - 1 !!
+			_outputReadData = _memory[_inputAddress];
 		}
 	}
 	

@@ -5,6 +5,7 @@ package processor.alu;
 
 import processor.controls.Control;
 import processor.register.Registers;
+import processor.signextender.SignExtender;
 
 /**
  * @author Acid Flow
@@ -33,11 +34,15 @@ public class ALU {
 		_inputReadData1 = r.getOutputReadData1();
 	}
 	
-	public void setInputReadData2(Registers r, Control c){
+	public void setInputReadData2(Registers r, Control c, SignExtender s){
 		if(!c.isAluSrc()){
 			_inputReadData2 = r.getOutputReadData2();
+		}else{
+			_inputReadData2 = s.getOutput();
 		}
 	}
+	
+	
 	
 	public void executeOperation(ALUControl aluControl){
 		switch(aluControl.getOutputOperation()){

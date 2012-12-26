@@ -36,7 +36,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 	private JTable _instructionTable;
 	private JTable _controlsTable;
 	private JTable _registerTable;
-	private JTable table_2;
+	private JTable _dataMemoryTable;
 	private MipsProcessor _processor;
 	private JTable _numericalFieldsTable;
 
@@ -197,115 +197,8 @@ public class MipsMainFrame extends JFrame implements Observer{
 		JScrollPane scrollPane_3 = new JScrollPane();
 		panel_2.add(scrollPane_3, BorderLayout.CENTER);
 		
-		table_2 = new JTable();
-		table_2.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"New column", "New column"
-			}
-		));
-		scrollPane_3.setViewportView(table_2);
+		_dataMemoryTable = new JTable();
+		scrollPane_3.setViewportView(_dataMemoryTable);
 		memoryPanel.setLayout(gl_memoryPanel);
 		
 		JLabel lblRegisters = new JLabel("Registers");
@@ -470,6 +363,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 		_instructionTable.setRowSelectionInterval(_processor.getIndexCurrentInstruction(), _processor.getIndexCurrentInstruction());
 		_registerTable.setModel(_processor.getRegistersTableModel());
 		_controlsTable.setModel(_processor.getControlsTableModel());
+		_dataMemoryTable.setModel(_processor.getDataMemoryTableModel());
 		if(_processor.getIndexCurrentInstruction() != -1){
 			_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
 		}
