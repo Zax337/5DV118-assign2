@@ -94,7 +94,7 @@ public class Registers {
 	}
 	
 	public void setOuputReadData2(){
-		_outputReadData1 = _registerValues[_inputReadRegister2];
+		_outputReadData2 = _registerValues[_inputReadRegister2];
 	}
 	
 	public int getOutputReadData1(){

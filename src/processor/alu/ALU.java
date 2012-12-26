@@ -40,8 +40,25 @@ public class ALU {
 	}
 	
 	public void executeOperation(ALUControl aluControl){
-		if(aluControl.getOutputOperation() == FUNC_CODE_ADD){
+		switch(aluControl.getOutputOperation()){
+		case FUNC_CODE_ADD:
 			_outputAluResult = _inputReadData1 + _inputReadData2;
+			break;
+		case FUNC_CODE_SUB:
+			_outputAluResult = _inputReadData1 - _inputReadData2;
+			break;
+		case FUNC_CODE_AND:
+			_outputAluResult = _inputReadData1 & _inputReadData2;
+			break;
+		case FUNC_CODE_OR:
+			_outputAluResult = _inputReadData1 | _inputReadData2;
+			break;
+		case FUNC_CODE_NOR:
+			_outputAluResult = ~(_inputReadData1 | _inputReadData2);
+			break;
+		case FUNC_CODE_SLT:
+			_outputAluResult = (_inputReadData1 < _inputReadData2) ? 1 : 0;
+			break;
 		}
 	}
 	

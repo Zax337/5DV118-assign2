@@ -39,27 +39,22 @@ public class Control {
 	}
 	
 	public void activateLines(){
+		disableAllControls();
 		if(isROpcode()){
-			disableAllControls();
 			enableRegDst();
 			enableAluOp1();
 			enableRegWrite();
 		}else if(isLWOpcode()){
-			disableAllControls();
 			enableMemRead();
 			enableMemToReg();
 			enableAluSrc();
 			enableRegWrite();
 		}else if(isSWOpcode()){
-			disableAllControls();
 			enableMemWrite();
 			enableAluSrc();
 		}else if(isBEQOpcode()){
-			disableAllControls();
 			enableBranch();
 			enableAluOp0();
-		}else{
-			disableAllControls();
 		}
 	}
 	
