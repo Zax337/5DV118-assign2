@@ -30,6 +30,7 @@ public final class MIPSimulator {
 				try {
 					MipsMainFrame frame = new MipsMainFrame(mp);
 					mp.addObserver(frame);
+					mp.notifyObservers();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

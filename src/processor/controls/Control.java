@@ -3,12 +3,20 @@
  */
 package processor.controls;
 
+import instruction.Instruction;
+
 /**
  * @author Acid Flow
  *
  */
 public class Control {
+	
+	private static final int[] R_OPCODE = {0};
+	private static final int[] LW_OPCODE = {35};
+	private static final int[] SW_OPCODE = {43};
+	private static final int[] BEQ_OPCODE = {4};
 
+	private int _inputOpcode;
 	private boolean _regDst;
 	private boolean _branch;
 	private boolean _memRead;
@@ -21,6 +29,63 @@ public class Control {
 
 	public Control(){
 		disableAllControls();
+		_inputOpcode = -1;
+	}
+	
+	public void setInputOpcode(int completeInstruction){
+		String binString = Instruction.extendToMaxBits(Integer.toBinaryString(completeInstruction), 32);
+		String opCode = binString.substring(0,6);
+		_inputOpcode = Integer.parseInt(opCode, 2);
+	}
+	
+	public void activateLines(){
+		if(isROpcode()){
+			disableAllControls();
+			enableRegDst();
+			enableAluOp1();
+			enableRegWrite();
+		}else if(isLWOpcode()){
+			disableAllControls();
+			enableMemRead();
+			enableMemToReg();
+			enableAluSrc();
+			enableRegWrite();
+		}else if(isSWOpcode()){
+			disableAllControls();
+			enableMemWrite();
+			enableAluSrc();
+		}else if(isBEQOpcode()){
+			disableAllControls();
+			enableBranch();
+			enableAluOp0();
+		}else{
+			disableAllControls();
+		}
+	}
+	
+	private boolean isInArray(int[] opCodeArray){
+		for(int i = 0; i < opCodeArray.length; i++){
+			if(_inputOpcode == opCodeArray[i]){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private boolean isROpcode(){
+		return isInArray(R_OPCODE);
+	}
+	
+	private boolean isLWOpcode(){
+		return isInArray(LW_OPCODE);
+	}
+	
+	private boolean isSWOpcode(){
+		return isInArray(SW_OPCODE);
+	}
+	
+	private boolean isBEQOpcode(){
+		return isInArray(BEQ_OPCODE);
 	}
 
 	public void disableAllControls(){

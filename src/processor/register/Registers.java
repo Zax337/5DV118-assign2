@@ -3,7 +3,11 @@
  */
 package processor.register;
 
+import instruction.Instruction;
+
 import java.util.HashMap;
+
+import processor.controls.Control;
 
 /**
  * @author Acid Flow
@@ -53,6 +57,12 @@ public class Registers {
 	}
 
 	private int[] _registerValues;
+	private int _inputReadRegister1;
+	private int _inputReadRegister2;
+	private int _inputWriteRegister;
+	private int _inputWriteData;
+	private int _outputReadData1;
+	private int _outputReadData2;
 
 	public Registers(){
 		_registerValues = new int[NB_REGISTER];
@@ -61,6 +71,46 @@ public class Registers {
 
 	public int[] getRegistersValues(){
 		return _registerValues;
+	}
+	
+	public void setInputReadRegister1(int completeInstruction){
+		_inputReadRegister1 = Integer.parseInt(Instruction.extendToMaxBits(Integer.toBinaryString(completeInstruction), 32).substring(6,11), 2);
+	}
+	
+	public void setInputReadRegister2(int completeInstruction){
+		_inputReadRegister2 = Integer.parseInt(Instruction.extendToMaxBits(Integer.toBinaryString(completeInstruction), 32).substring(11,16), 2);
+	}
+	
+	public void setInputWriteRegister(int completeInstruction, Control c){
+		if(!c.isRegDst()){
+			_inputWriteRegister = Integer.parseInt(Instruction.extendToMaxBits(Integer.toBinaryString(completeInstruction), 32).substring(11,16), 2); 
+		}else{
+			_inputWriteRegister = Integer.parseInt(Instruction.extendToMaxBits(Integer.toBinaryString(completeInstruction), 32).substring(16,21), 2);
+		}
+	}
+	
+	public void setOuputReadData1(){
+		_outputReadData1 = _registerValues[_inputReadRegister1];
+	}
+	
+	public void setOuputReadData2(){
+		_outputReadData1 = _registerValues[_inputReadRegister2];
+	}
+	
+	public int getOutputReadData1(){
+		return _outputReadData1;
+	}
+	
+	public int getOutputReadData2(){
+		return _outputReadData2;
+	}
+	
+	public void setInputWriteData(int data){
+		_inputWriteData = data;
+	}
+	
+	public void writeData(){
+		_registerValues[_inputWriteRegister] = _inputWriteData;
 	}
 
 	/**
@@ -97,7 +147,7 @@ public class Registers {
 	 */
 	private void initRegisters(){
 		for(int i = 0; i < NB_REGISTER; i++){
-			_registerValues[i] = 0;
+			_registerValues[i] = (i == 10) ? 1 : 0;
 		}
 	}
 

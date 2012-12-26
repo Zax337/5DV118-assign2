@@ -56,7 +56,7 @@ public abstract class Instruction {
 						"binary = "+ _binaryRepresentation + "]\n";
 	}
 	
-	protected String extendToMaxBits(String binaryString, int bitNumber){
+	public static String extendToMaxBits(String binaryString, int bitNumber){
 		String ret = binaryString;
 		for(int i = binaryString.length(); i < bitNumber; i++){
 			ret = "0" + ret;

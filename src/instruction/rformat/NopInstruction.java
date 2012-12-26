@@ -18,7 +18,7 @@ public final class NopInstruction extends RInstruction {
 	public NopInstruction() {
 		super(null);
 		_opCode = extendToMaxBits(Integer.toBinaryString(0), RInstruction.OPCODE_NB_BITS);
-		_funcCode = extendToMaxBits(Integer.toBinaryString(0), RInstruction.REGISTER_NB_BITS);
+		_funcCode = extendToMaxBits(Integer.toBinaryString(0), RInstruction.FUNC_CODE_NB_BITS);
 	}
 	
 	@Override

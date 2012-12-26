@@ -40,10 +40,14 @@ public class MipsProcessor extends Observable{
 				_instructionMemory.addInstructionToMemory(i.getBinaryRepresentation());
 			}
 		}
-		System.out.println(_instructionMemory.getInstruction(0));
+		_dataMemory = new DataMemory();
+		_alu = new ALU();
+		_aluControl = new ALUControl();
+		_pc = new PC();
+		_pcAddUnit = new PCAddUnit();
 		_registers = new Registers();
-		_indexCurrentInstruction = -1;
 		_control = new Control();
+		setChanged();
 	}
 	
 	public Control getControls(){
@@ -63,20 +67,38 @@ public class MipsProcessor extends Observable{
 	}
 	
 	public Instruction getCurrentInstruction(){
-		return _instructionsToDo.get(_indexCurrentInstruction);
+		return _instructionsToDo.get(_pc.getPCValue() / 4);
 	}
 
 	public void execute(){
-		if(_indexCurrentInstruction != -1){
-			Instruction i = _instructionsToDo.get(_indexCurrentInstruction);
-			i.execute(this);
-		}
-		_indexCurrentInstruction++;
+		int completeInstruction = _instructionMemory.getInstruction(_pc.getPCValue());
+		_pcAddUnit.incrementPC(_pc);
+		_control.setInputOpcode(completeInstruction);
+		_control.activateLines();
+		_registers.setInputReadRegister1(completeInstruction);
+		_registers.setInputReadRegister2(completeInstruction);
+		_registers.setInputWriteRegister(completeInstruction, _control);
+		_registers.setOuputReadData1();
+		_registers.setOuputReadData2();
+		_aluControl.setInputAluOp0(_control);
+		_aluControl.setInputAluOp1(_control);
+		_aluControl.setInputFunctionCode(completeInstruction);
+		_aluControl.setOutputOperation();
+		_alu.setInputReadData1(_registers);
+		_alu.setInputReadData2(_registers, _control);
+		_alu.executeOperation(_aluControl);
+		_dataMemory.setInputMemRead(_control);
+		_dataMemory.setInputMemWrite(_control);
+		_dataMemory.setInputAddress(_alu);
+		_dataMemory.setInputWriteData(_registers);
+		int out = _dataMemory.getOutput(_control, _alu);
+		_registers.setInputWriteData(out);
+		_registers.writeData();
 		setChanged();
 		notifyObservers();
 	}
 	
 	public int getIndexCurrentInstruction(){
-		return _indexCurrentInstruction;
+		return _pc.getPCValue() / 4;
 	}
 }

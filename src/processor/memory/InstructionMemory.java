@@ -18,12 +18,12 @@ public class InstructionMemory {
 	}
 	
 	public void addInstructionToMemory(String binaryString){
-		int ins = Integer.parseInt(binaryString, 2);
+		byte test = createByteFromString("11111111");
 		byte[] instructionByte = new byte[4];
-		instructionByte[0] = Byte.valueOf(binaryString.substring(0, 8), 2);
-		instructionByte[1] = Byte.valueOf(binaryString.substring(8, 16), 2);
-		instructionByte[2] = Byte.valueOf(binaryString.substring(16, 24), 2);
-		instructionByte[3] = Byte.valueOf(binaryString.substring(24, 32), 2);
+		instructionByte[0] = createByteFromString(binaryString.substring(0, 8));
+		instructionByte[1] = createByteFromString(binaryString.substring(8, 16));
+		instructionByte[2] = createByteFromString(binaryString.substring(16, 24));
+		instructionByte[3] = createByteFromString(binaryString.substring(24, 32));
 		_memory.add(instructionByte[0]);
 		_memory.add(instructionByte[1]);
 		_memory.add(instructionByte[2]);
@@ -38,5 +38,16 @@ public class InstructionMemory {
 		}
 		return ret;
 	}
+	
+	private byte createByteFromString(String bin){
+		byte b = 0;
+		for(int i = 0; i < bin.length(); i++){
+			b <<= 1;
+			b |= (bin.charAt(i) == '1') ? 1 : 0;
+		}
+		return b;
+	}
+	
+	
 	
 }
