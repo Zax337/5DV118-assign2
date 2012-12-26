@@ -29,13 +29,13 @@ public class TableDataMemoryModel extends AbstractTableModel {
 		for(int i = 0; i < memValue.length/4; i++){
 			
 			if(Config.DISPLAY_HEX){
-				_data[i][0] = "0x" + Integer.toHexString(i);
+				_data[i][0] = "0x" + Integer.toHexString(4*i);
 				_data[i][1] = "0x" + Integer.toHexString(memValue[i*4]);
 				_data[i][2] = "0x" + Integer.toHexString(memValue[4*i+1]);
 				_data[i][3] = "0x" + Integer.toHexString(memValue[4*i+2]);
 				_data[i][4] = "0x" + Integer.toHexString(memValue[4*i+3]);
 			}else{
-				_data[i][0] = i + "";
+				_data[i][0] = 4*i + "";
 				_data[i][1] = Integer.toString(memValue[4*i]);
 				_data[i][2] = Integer.toString(memValue[4*i+1]);
 				_data[i][3] = Integer.toString(memValue[4*i+2]);
