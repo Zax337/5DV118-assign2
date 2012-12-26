@@ -109,8 +109,10 @@ public class Registers {
 		_inputWriteData = data;
 	}
 	
-	public void writeData(){
-		_registerValues[_inputWriteRegister] = _inputWriteData;
+	public void writeData(Control c){
+		if(c.isRegWrite()){
+			_registerValues[_inputWriteRegister] = _inputWriteData;
+		}
 	}
 
 	/**

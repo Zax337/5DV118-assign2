@@ -3,6 +3,7 @@
  */
 package processor.memory;
 
+import instruction.Instruction;
 import processor.alu.ALU;
 import processor.controls.Control;
 import processor.register.Registers;
@@ -52,7 +53,25 @@ public class DataMemory {
 		}else if(_inputMemRead && !_inputMemWrite){
 			// TODO Peut être de _inputAddress - 1 !!
 			_outputReadData = _memory[_inputAddress];
+		}else if(!_inputMemRead && _inputMemWrite){
+			storeWord();
 		}
+	}
+	
+	private void storeWord(){
+		_memory[_inputAddress] = createByteFromString(Instruction.extendToMaxBits(Integer.toBinaryString(_inputWriteData), 32).substring(0, 8));
+		_memory[_inputAddress+1] = createByteFromString(Instruction.extendToMaxBits(Integer.toBinaryString(_inputWriteData), 32).substring(8, 16));
+		_memory[_inputAddress+2] = createByteFromString(Instruction.extendToMaxBits(Integer.toBinaryString(_inputWriteData), 32).substring(16, 24));
+		_memory[_inputAddress+3] = createByteFromString(Instruction.extendToMaxBits(Integer.toBinaryString(_inputWriteData), 32).substring(24, 32));
+	}
+	
+	private byte createByteFromString(String bin){
+		byte b = 0;
+		for(int i = 0; i < bin.length(); i++){
+			b <<= 1;
+			b |= (bin.charAt(i) == '1') ? 1 : 0;
+		}
+		return b;
 	}
 	
 	public int getOutput(Control c, ALU alu){

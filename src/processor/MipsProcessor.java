@@ -104,7 +104,7 @@ public class MipsProcessor extends Observable{
 		_dataMemory.setOutputReadData();
 		int out = _dataMemory.getOutput(_control, _alu);
 		_registers.setInputWriteData(out);
-		_registers.writeData();
+		_registers.writeData(_control);
 		setChanged();
 		notifyObservers();
 	}

@@ -18,7 +18,6 @@ public class InstructionMemory {
 	}
 	
 	public void addInstructionToMemory(String binaryString){
-		byte test = createByteFromString("11111111");
 		byte[] instructionByte = new byte[4];
 		instructionByte[0] = createByteFromString(binaryString.substring(0, 8));
 		instructionByte[1] = createByteFromString(binaryString.substring(8, 16));
