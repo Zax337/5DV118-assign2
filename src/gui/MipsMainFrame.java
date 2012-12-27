@@ -25,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 
 import config.Config;
 import controller.DisplaySwitchController;
+import controller.ResetController;
 
 import processor.MipsProcessor;
 
@@ -137,6 +138,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 		JButton btnRun = new JButton("Run");
 		
 		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ResetController(this));
 		
 		JComboBox comboBoxDisplay = new JComboBox();
 		comboBoxDisplay.setModel(new DefaultComboBoxModel(new String[] {DISPLAY_DEC, DISPLAY_HEX}));
@@ -377,5 +379,9 @@ public class MipsMainFrame extends JFrame implements Observer{
 		if(_processor.getIndexCurrentInstruction() != -1){
 			_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
 		}
+	}
+
+	public void resetProcessor() {
+		_processor.reset();
 	}
 }

@@ -24,7 +24,12 @@ public class DataMemory {
 	
 	public DataMemory(){
 		_memory = new byte[MEMORY_SIZE];
-		_memory[4] = (byte) 0x10;
+	}
+	
+	public void reset(){
+		for(int i = 0; i < MEMORY_SIZE; i++){
+			_memory[i] = 0;
+		}
 	}
 	
 	public byte[] getMemoryValue(){

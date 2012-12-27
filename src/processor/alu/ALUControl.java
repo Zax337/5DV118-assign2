@@ -36,7 +36,7 @@ public class ALUControl {
 	}
 	
 	public void setOutputOperation(){
-		if(_intputAluOp1 && !_intputAluOp0){
+		if(_intputAluOp1 && !_intputAluOp0 || _intputAluOp1 && _intputAluOp0){
 			_outputOperation = _inputFunctionCode;
 		}else if(!_intputAluOp1 && !_intputAluOp0){
 			_outputOperation = AddInstruction.FUNC_CODE;

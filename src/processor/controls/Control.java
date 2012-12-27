@@ -15,6 +15,7 @@ public class Control {
 	private static final int[] LW_OPCODE = {35};
 	private static final int[] SW_OPCODE = {43};
 	private static final int[] BEQ_OPCODE = {4};
+	private static final int[] ADDI_OPCODE = {8};
 
 	private int _inputOpcode;
 	private boolean _regDst;
@@ -30,6 +31,10 @@ public class Control {
 	public Control(){
 		disableAllControls();
 		_inputOpcode = -1;
+	}
+	
+	public void reset(){
+		disableAllControls();
 	}
 	
 	public void setInputOpcode(int completeInstruction){
@@ -55,6 +60,9 @@ public class Control {
 		}else if(isBEQOpcode()){
 			enableBranch();
 			enableAluOp0();
+		}else if(isAddiOpcode()){
+			enableRegWrite();
+			enableAluSrc();
 		}
 	}
 	
@@ -65,6 +73,10 @@ public class Control {
 			}
 		}
 		return false;
+	}
+	
+	private boolean isAddiOpcode(){
+		return isInArray(ADDI_OPCODE);
 	}
 	
 	private boolean isROpcode(){

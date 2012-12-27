@@ -1,7 +1,8 @@
+addi $t0, $t1, 256
 lw $t0, 4($zero)
 sw $t0, 8($zero)
 add $t0,$t1,$t2
-beq $t0, $t2, 3
+beq $t0,$t1,-1
 sub $t0,$t1,$t2
 and $t0,$t1,$t2
 or $t0,$t1,$t2

@@ -144,12 +144,16 @@ public class Registers {
 		}
 	}
 
+	public void reset(){
+		initRegisters();
+	}
+	
 	/**
 	 * Initialize registers to 0 
 	 */
 	private void initRegisters(){
 		for(int i = 0; i < NB_REGISTER; i++){
-			_registerValues[i] = (i == 10) ? 1 : 0;
+			_registerValues[i] = 0;
 		}
 	}
 

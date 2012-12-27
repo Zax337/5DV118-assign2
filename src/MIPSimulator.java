@@ -22,7 +22,7 @@ public final class MIPSimulator {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		ArrayList<Instruction> ins = InstructionParser.parseFile("data/test.txt");
+		ArrayList<Instruction> ins = InstructionParser.parseFile("data/test.asm");
 		System.out.println(ins);
 		final MipsProcessor mp = new MipsProcessor(ins);
 		EventQueue.invokeLater(new Runnable() {

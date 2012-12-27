@@ -5,6 +5,7 @@ package parser;
 
 import instruction.ExitInstruction;
 import instruction.Instruction;
+import instruction.iformat.AddiInstruction;
 import instruction.iformat.BeqInstruction;
 import instruction.iformat.LwInstruction;
 import instruction.iformat.SwInstruction;
@@ -43,6 +44,7 @@ public class InstructionParser {
 		INSTRUCTIONS.put("beq", BeqInstruction.class);
 		INSTRUCTIONS.put("nop", NopInstruction.class);
 		INSTRUCTIONS.put("exit", ExitInstruction.class);
+		INSTRUCTIONS.put("addi", AddiInstruction.class);
 	}
 	
 	public static ArrayList<Instruction> parseFile(String file){

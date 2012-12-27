@@ -1,6 +1,5 @@
 package processor;
 
-import gui.MipsMainFrame;
 import gui.model.TableControlsModel;
 import gui.model.TableDataMemoryModel;
 import gui.model.TableInstructionToDoModel;
@@ -24,7 +23,6 @@ import processor.signextender.SignExtender;
 public class MipsProcessor extends Observable{
 
 	private ArrayList<Instruction> _instructionsToDo;
-	private int _indexCurrentInstruction;
 	private InstructionMemory _instructionMemory;
 	private DataMemory _dataMemory;
 	private ALU _alu;
@@ -106,6 +104,15 @@ public class MipsProcessor extends Observable{
 		int out = _dataMemory.getOutput(_control, _alu);
 		_registers.setInputWriteData(out);
 		_registers.writeData(_control);
+		setChanged();
+		notifyObservers();
+	}
+	
+	public void reset(){
+		_registers.reset();
+		_dataMemory.reset();
+		_pc.reset();
+		_control.reset();
 		setChanged();
 		notifyObservers();
 	}

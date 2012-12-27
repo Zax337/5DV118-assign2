@@ -21,4 +21,8 @@ public class PC {
 	public void setPCValue(int value){
 		_pcValue = value;
 	}
+	
+	public void reset(){
+		_pcValue = 0;
+	}
 }
