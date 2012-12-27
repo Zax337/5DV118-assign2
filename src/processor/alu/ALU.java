@@ -51,6 +51,7 @@ public class ALU {
 			break;
 		case FUNC_CODE_SUB:
 			_outputAluResult = _inputReadData1 - _inputReadData2;
+			_outputZero = (_outputAluResult == 0) ? true : false;
 			break;
 		case FUNC_CODE_AND:
 			_outputAluResult = _inputReadData1 & _inputReadData2;
@@ -69,6 +70,10 @@ public class ALU {
 	
 	public int getOutputAluResult(){
 		return _outputAluResult;
+	}
+	
+	public boolean isOutputZero(){
+		return _outputZero;
 	}
 	
 	

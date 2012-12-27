@@ -97,6 +97,7 @@ public class MipsProcessor extends Observable{
 		_alu.setInputReadData1(_registers);
 		_alu.setInputReadData2(_registers, _control, _signExtender);
 		_alu.executeOperation(_aluControl);
+		_pcAddUnit.branchPC(_signExtender.getOutput(), _control, _alu, _pc);
 		_dataMemory.setInputMemRead(_control);
 		_dataMemory.setInputMemWrite(_control);
 		_dataMemory.setInputAddress(_alu);
