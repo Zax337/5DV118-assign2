@@ -51,7 +51,7 @@ public class MipsProcessor extends Observable{
 		_signExtender = new SignExtender();
 		setChanged();
 	}
-	
+
 	public Control getControls(){
 		return _control;
 	}
@@ -63,51 +63,53 @@ public class MipsProcessor extends Observable{
 	public  TableInstructionToDoModel getInstructionToDoTableModel(){
 		return new TableInstructionToDoModel(_instructionsToDo);
 	}
-	
+
 	public  TableControlsModel getControlsTableModel(){
 		return new TableControlsModel(_control);
 	}
-	
+
 	public TableDataMemoryModel getDataMemoryTableModel(){
 		return new TableDataMemoryModel(_dataMemory);
 	}
-	
+
 	public Instruction getCurrentInstruction(){
 		return _instructionsToDo.get(_pc.getPCValue() / 4);
 	}
 
 	public void execute(){
-		int completeInstruction = _instructionMemory.getInstruction(_pc.getPCValue());
-		_pcAddUnit.incrementPC(_pc);
-		_control.setInputOpcode(completeInstruction);
-		_control.activateLines();
-		_registers.setInputReadRegister1(completeInstruction);
-		_registers.setInputReadRegister2(completeInstruction);
-		_registers.setInputWriteRegister(completeInstruction, _control);
-		_registers.setOuputReadData1();
-		_registers.setOuputReadData2();
-		_signExtender.setInputInstruction(completeInstruction);
-		_signExtender.setOutput();
-		_aluControl.setInputAluOp0(_control);
-		_aluControl.setInputAluOp1(_control);
-		_aluControl.setInputFunctionCode(completeInstruction);
-		_aluControl.setOutputOperation();
-		_alu.setInputReadData1(_registers);
-		_alu.setInputReadData2(_registers, _control, _signExtender);
-		_alu.executeOperation(_aluControl);
-		_pcAddUnit.branchPC(_signExtender.getOutput(), _control, _alu, _pc);
-		_dataMemory.setInputMemRead(_control);
-		_dataMemory.setInputMemWrite(_control);
-		_dataMemory.setInputAddress(_alu);
-		_dataMemory.setInputWriteData(_registers);
-		_dataMemory.setOutputReadData();
-		int out = _dataMemory.getOutput(_control, _alu);
-		_registers.setInputWriteData(out);
-		_registers.writeData(_control);
-		setChanged();
-		notifyObservers();
+		if(!(getCurrentInstruction() instanceof ExitInstruction)){
+			int completeInstruction = _instructionMemory.getInstruction(_pc.getPCValue());
+			_pcAddUnit.incrementPC(_pc);
+			_control.setInputOpcode(completeInstruction);
+			_control.activateLines();
+			_registers.setInputReadRegister1(completeInstruction);
+			_registers.setInputReadRegister2(completeInstruction);
+			_registers.setInputWriteRegister(completeInstruction, _control);
+			_registers.setOuputReadData1();
+			_registers.setOuputReadData2();
+			_signExtender.setInputInstruction(completeInstruction);
+			_signExtender.setOutput();
+			_aluControl.setInputAluOp0(_control);
+			_aluControl.setInputAluOp1(_control);
+			_aluControl.setInputFunctionCode(completeInstruction);
+			_aluControl.setOutputOperation();
+			_alu.setInputReadData1(_registers);
+			_alu.setInputReadData2(_registers, _control, _signExtender);
+			_alu.executeOperation(_aluControl);
+			_pcAddUnit.branchPC(_signExtender.getOutput(), _control, _alu, _pc);
+			_dataMemory.setInputMemRead(_control);
+			_dataMemory.setInputMemWrite(_control);
+			_dataMemory.setInputAddress(_alu);
+			_dataMemory.setInputWriteData(_registers);
+			_dataMemory.setOutputReadData();
+			int out = _dataMemory.getOutput(_control, _alu);
+			_registers.setInputWriteData(out);
+			_registers.writeData(_control);
+			setChanged();
+			notifyObservers();
+		}
 	}
-	
+
 	public void reset(){
 		_registers.reset();
 		_dataMemory.reset();
@@ -116,11 +118,11 @@ public class MipsProcessor extends Observable{
 		setChanged();
 		notifyObservers();
 	}
-	
+
 	public int getIndexCurrentInstruction(){
 		return _pc.getPCValue() / 4;
 	}
-	
+
 	public PC getPC(){
 		return _pc;
 	}
