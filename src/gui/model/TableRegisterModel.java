@@ -28,7 +28,7 @@ public class TableRegisterModel extends AbstractTableModel {
 		for(int i = 0; i < regValue.length; i++){
 			_data[i][0] = Registers.REGISTERS_INT.get(i);
 			if(Config.DISPLAY_HEX){
-				_data[i][1] = "0x" + Integer.toString(regValue[i], 16);
+				_data[i][1] = "0x" + Integer.toHexString(regValue[i]);
 			}else{
 				_data[i][1] = Integer.toString(regValue[i], 10);
 			}
