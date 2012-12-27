@@ -113,4 +113,8 @@ public class MipsProcessor extends Observable{
 	public int getIndexCurrentInstruction(){
 		return _pc.getPCValue() / 4;
 	}
+	
+	public PC getPC(){
+		return _pc;
+	}
 }

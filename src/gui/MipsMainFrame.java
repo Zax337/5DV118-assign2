@@ -23,6 +23,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import config.Config;
 import controller.DisplaySwitchController;
 
 import processor.MipsProcessor;
@@ -39,7 +40,8 @@ public class MipsMainFrame extends JFrame implements Observer{
 	private JTable _dataMemoryTable;
 	private MipsProcessor _processor;
 	private JTable _numericalFieldsTable;
-
+	private JLabel _pcValue;
+	
 	public JTable getInstructionTable(){
 		return _instructionTable;
 	}
@@ -265,20 +267,26 @@ public class MipsMainFrame extends JFrame implements Observer{
 		numericalFieldsPanel.setLayout(gl_numericalFieldsPanel);
 		
 		JLabel lblPc = new JLabel("PC");
+		
+		_pcValue = new JLabel("");
 		GroupLayout gl_pcPanel = new GroupLayout(pcPanel);
 		gl_pcPanel.setHorizontalGroup(
 			gl_pcPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pcPanel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblPc)
-					.addContainerGap(354, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(_pcValue)
+					.addContainerGap(384, Short.MAX_VALUE))
 		);
 		gl_pcPanel.setVerticalGroup(
 			gl_pcPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_pcPanel.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblPc)
-					.addContainerGap(29, Short.MAX_VALUE))
+					.addGroup(gl_pcPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblPc)
+						.addComponent(_pcValue))
+					.addContainerGap(37, Short.MAX_VALUE))
 		);
 		pcPanel.setLayout(gl_pcPanel);
 		
@@ -364,6 +372,8 @@ public class MipsMainFrame extends JFrame implements Observer{
 		_registerTable.setModel(_processor.getRegistersTableModel());
 		_controlsTable.setModel(_processor.getControlsTableModel());
 		_dataMemoryTable.setModel(_processor.getDataMemoryTableModel());
+		String pcValue = (Config.DISPLAY_HEX) ? "0x" + Integer.toHexString(_processor.getPC().getPCValue()) : _processor.getPC().getPCValue() + "";
+		_pcValue.setText(pcValue);
 		if(_processor.getIndexCurrentInstruction() != -1){
 			_numericalFieldsTable.setModel(_processor.getCurrentInstruction().getNumericalFieldsTableModel());
 		}
