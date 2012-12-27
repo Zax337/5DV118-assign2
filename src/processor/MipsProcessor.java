@@ -22,6 +22,7 @@ import processor.signextender.SignExtender;
 
 public class MipsProcessor extends Observable{
 
+	private boolean _hasFinished;
 	private ArrayList<Instruction> _instructionsToDo;
 	private InstructionMemory _instructionMemory;
 	private DataMemory _dataMemory;
@@ -49,6 +50,7 @@ public class MipsProcessor extends Observable{
 		_registers = new Registers();
 		_control = new Control();
 		_signExtender = new SignExtender();
+		_hasFinished = false;
 		setChanged();
 	}
 
@@ -107,10 +109,17 @@ public class MipsProcessor extends Observable{
 			_registers.writeData(_control);
 			setChanged();
 			notifyObservers();
+		}else{
+			_hasFinished = true;
 		}
+	}
+	
+	public boolean hasFinised(){
+		return _hasFinished;
 	}
 
 	public void reset(){
+		_hasFinished = false;
 		_registers.reset();
 		_dataMemory.reset();
 		_pc.reset();

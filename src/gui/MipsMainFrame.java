@@ -26,6 +26,7 @@ import javax.swing.table.DefaultTableModel;
 import config.Config;
 import controller.DisplaySwitchController;
 import controller.ResetController;
+import controller.RunController;
 
 import processor.MipsProcessor;
 
@@ -33,6 +34,9 @@ public class MipsMainFrame extends JFrame implements Observer{
 
 	public static final String DISPLAY_HEX = "Hexadecimal";
 	public static final String DISPLAY_DEC = "Decimal";
+	public static final String TEXT_RUN = "Run";
+	public static final String TEXT_STOP = "Stop";
+	public static boolean RUN = false;
 	
 	private JPanel _contentPane;
 	private JTable _instructionTable;
@@ -42,6 +46,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 	private MipsProcessor _processor;
 	private JTable _numericalFieldsTable;
 	private JLabel _pcValue;
+	private JButton _btnRun;
 	
 	public JTable getInstructionTable(){
 		return _instructionTable;
@@ -135,7 +140,8 @@ public class MipsMainFrame extends JFrame implements Observer{
 			}
 		});
 		
-		JButton btnRun = new JButton("Run");
+		_btnRun = new JButton(TEXT_RUN);
+		_btnRun.addActionListener(new RunController(this));
 		
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ResetController(this));
@@ -153,7 +159,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 						.addGroup(gl_optionsPanel.createParallelGroup(Alignment.LEADING, false)
 							.addComponent(lblOptions)
 							.addComponent(btnReset, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(btnRun, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(_btnRun, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addComponent(btnStep, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
 					.addContainerGap())
 		);
@@ -163,7 +169,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 					.addContainerGap()
 					.addComponent(btnStep)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnRun)
+					.addComponent(_btnRun)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnReset)
 					.addGap(52)
@@ -383,5 +389,12 @@ public class MipsMainFrame extends JFrame implements Observer{
 
 	public void resetProcessor() {
 		_processor.reset();
+	}
+
+	public void runProgram() {
+		while(RUN && !_processor.hasFinised()){
+			_processor.execute();
+		}
+		_btnRun.setText(TEXT_RUN);
 	}
 }
