@@ -1,4 +1,4 @@
-addi $t0, $t1, 8
+addi $t0, $t1, 4
 addi $t1, $zero, 1
 sw 	$t0, ($zero)
 sub $t0, $t0, $t1

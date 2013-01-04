@@ -55,7 +55,7 @@ public class Registers {
 		REGISTERS.put("$fp", 30);	REGISTERS_INT.put(30,"$fp");		// Frame pointer
 		REGISTERS.put("$ra", 31);	REGISTERS_INT.put(31,"$ra");		// Return address
 	}
-
+	
 	private int[] _registerValues;
 	private int _inputReadRegister1;
 	private int _inputReadRegister2;
@@ -63,10 +63,12 @@ public class Registers {
 	private int _inputWriteData;
 	private int _outputReadData1;
 	private int _outputReadData2;
+	private int _lastChanged;
 
 	public Registers(){
 		_registerValues = new int[NB_REGISTER];
 		initRegisters();
+		_lastChanged = -1;
 	}
 
 	public int[] getRegistersValues(){
@@ -112,7 +114,14 @@ public class Registers {
 	public void writeData(Control c){
 		if(c.isRegWrite()){
 			_registerValues[_inputWriteRegister] = _inputWriteData;
+			_lastChanged = _inputWriteRegister;
+		}else{
+			_lastChanged = -1;
 		}
+	}
+	
+	public int getLastChanged(){
+		return _lastChanged;
 	}
 
 	/**

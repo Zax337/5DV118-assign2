@@ -65,6 +65,12 @@ public abstract class IInstruction extends Instruction {
 		return new TableNumericalFieldsIFormatModel(this);
 	}
 	
+	/**
+	 * Create an integer in 2 complement from a binary string
+	 * @param s the string
+	 * @param nbBits number of bit in the string if it is in full length
+	 * @return
+	 */
 	private int createInt2CFromBinaryString(String s, int nbBits){
 		int ret = 0;
 		boolean isNegative = (s.length() == nbBits && s.charAt(0) == '1') ? true : false;
@@ -78,7 +84,4 @@ public abstract class IInstruction extends Instruction {
 		}
 		return ret;
 	}
-	
-
-
 }

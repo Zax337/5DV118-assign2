@@ -3,7 +3,6 @@
  */
 package instruction.iformat;
 
-import processor.MipsProcessor;
 import processor.register.Registers;
 
 /**
@@ -63,15 +62,5 @@ public final class BeqInstruction extends IInstruction {
 			offsetString = offsetString.split(",")[OFFSET_POS].trim();
 			_offset = extendToMaxBits(Integer.toBinaryString(Integer.parseInt(offsetString)), OFFSET_NB_BITS);
 		}
-	}
-	
-	public void activateControlsLines(MipsProcessor p){
-		p.getControls().disableAllControls();
-		p.getControls().enableBranch();
-		p.getControls().enableAluOp0();
-	}
-	
-	public void execute(MipsProcessor processor){
-		activateControlsLines(processor);
 	}
 }

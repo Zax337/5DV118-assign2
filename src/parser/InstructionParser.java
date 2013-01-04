@@ -31,6 +31,7 @@ import java.util.HashMap;
 public class InstructionParser {
 
 	private static HashMap<String, Class> INSTRUCTIONS = new HashMap<String, Class>();
+	private static final String REGEXP_SPLIT = " "; 
 	
 	static{
 		INSTRUCTIONS.put("add", AddInstruction.class);
@@ -54,7 +55,7 @@ public class InstructionParser {
 			String ins;
 			while((ins = br.readLine()) != null){
 				ins.trim();
-				String[] insPart = ins.split(" ");
+				String[] insPart = ins.split(REGEXP_SPLIT);
 				if(INSTRUCTIONS.containsKey(insPart[0])){
 					Instruction i = (Instruction) INSTRUCTIONS.get(insPart[0]).newInstance();
 					i.setMnemonic(ins);

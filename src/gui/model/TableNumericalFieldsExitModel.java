@@ -11,6 +11,8 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TableNumericalFieldsExitModel extends AbstractTableModel {
 
+	private static final long serialVersionUID = 1L;
+
 	/* (non-Javadoc)
 	 * @see javax.swing.table.TableModel#getColumnCount()
 	 */

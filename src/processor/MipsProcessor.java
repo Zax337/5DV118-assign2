@@ -57,6 +57,10 @@ public class MipsProcessor extends Observable{
 	public Control getControls(){
 		return _control;
 	}
+	
+	public Registers getRegisters(){
+		return _registers;
+	}
 
 	public TableRegisterModel getRegistersTableModel(){
 		return new TableRegisterModel(_registers);
@@ -78,6 +82,9 @@ public class MipsProcessor extends Observable{
 		return _instructionsToDo.get(_pc.getPCValue() / 4);
 	}
 
+	/**
+	 * Execute the current instruction
+	 */
 	public void execute(){
 		if(!(getCurrentInstruction() instanceof ExitInstruction)){
 			int completeInstruction = _instructionMemory.getInstruction(_pc.getPCValue());

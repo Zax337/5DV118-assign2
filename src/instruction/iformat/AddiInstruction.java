@@ -3,7 +3,6 @@
  */
 package instruction.iformat;
 
-import processor.MipsProcessor;
 import processor.register.Registers;
 
 /**
@@ -65,23 +64,4 @@ public class AddiInstruction extends IInstruction {
 			_offset = extendToMaxBits(Integer.toBinaryString(Integer.parseInt(offsetString)), OFFSET_NB_BITS);
 		}
 	}
-
-	/* (non-Javadoc)
-	 * @see instruction.Instruction#execute(processor.MipsProcessor)
-	 */
-	@Override
-	public void execute(MipsProcessor processor) {
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
-	 * @see instruction.Instruction#activateControlsLines(processor.MipsProcessor)
-	 */
-	@Override
-	public void activateControlsLines(MipsProcessor p) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

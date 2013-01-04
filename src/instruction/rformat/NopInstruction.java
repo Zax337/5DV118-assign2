@@ -3,7 +3,6 @@
  */
 package instruction.rformat;
 
-import processor.MipsProcessor;
 
 /**
  * @author Acid Flow
@@ -27,9 +26,5 @@ public final class NopInstruction extends RInstruction {
 		_rs = extendToMaxBits(Integer.toBinaryString(0), RInstruction.REGISTER_NB_BITS);
 		_rt = extendToMaxBits(Integer.toBinaryString(0), RInstruction.REGISTER_NB_BITS);
 		_shamt = extendToMaxBits(Integer.toBinaryString(0), RInstruction.REGISTER_NB_BITS);
-	}
-
-	public void execute(MipsProcessor processor){
-		activateControlsLines(processor);
 	}
 }

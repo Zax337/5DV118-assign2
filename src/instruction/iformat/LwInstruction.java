@@ -3,7 +3,6 @@
  */
 package instruction.iformat;
 
-import processor.MipsProcessor;
 import processor.register.Registers;
 
 /**
@@ -63,18 +62,5 @@ public final class LwInstruction extends IInstruction {
 			_rs = extendToMaxBits(Integer.toBinaryString(RS_VALUE), REGISTER_NB_BITS);
 			_offset = extendToMaxBits(Integer.toBinaryString(Integer.parseInt(offsetString)), OFFSET_NB_BITS);
 		}
-	}
-	
-	public void activateControlsLines(MipsProcessor p){
-		p.getControls().disableAllControls();
-		p.getControls().enableMemRead();
-		p.getControls().enableMemToReg();
-		p.getControls().enableAluSrc();
-		p.getControls().enableRegWrite();
-	}
-	
-	public void execute(MipsProcessor processor){
-		activateControlsLines(processor);
-	}
-	
+	}	
 }

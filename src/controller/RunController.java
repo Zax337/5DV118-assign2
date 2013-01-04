@@ -27,8 +27,9 @@ public class RunController implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		_frame.RUN = !_frame.RUN;
-		((JButton) e.getSource()).setText((_frame.RUN) ? _frame.TEXT_STOP : _frame.TEXT_RUN);
+		MipsMainFrame.RUN = !MipsMainFrame.RUN;
+		((JButton) e.getSource()).setText((MipsMainFrame.RUN) ? MipsMainFrame.TEXT_STOP : MipsMainFrame.TEXT_RUN);
+		((JButton) e.getSource()).validate();
 		((JButton) e.getSource()).repaint();
 		_frame.runProgram();
 	}

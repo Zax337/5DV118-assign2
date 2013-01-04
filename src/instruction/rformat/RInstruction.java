@@ -5,7 +5,6 @@ package instruction.rformat;
 
 import gui.model.TableNumericalFieldsRFormatModel;
 import instruction.Instruction;
-import processor.MipsProcessor;
 import processor.register.Registers;
 import config.Config;
 
@@ -21,7 +20,7 @@ public abstract class RInstruction extends Instruction {
 	private static final int REGISTER_RS_POS = 1;
 	private static final int REGISTER_RD_POS = 0;
 	private static final int REGISTER_RT_POS = 2;
-
+	
 	protected String _rs;
 	protected String _rt;
 	protected String _rd;
@@ -114,13 +113,6 @@ public abstract class RInstruction extends Instruction {
 		}else{
 			return Integer.toString(Integer.parseInt(_funcCode,2));
 		}
-	}
-	
-	public void activateControlsLines(MipsProcessor p){
-		p.getControls().disableAllControls();
-		p.getControls().enableRegDst();
-		p.getControls().enableAluOp1();
-		p.getControls().enableRegWrite();
 	}
 	
 	public TableNumericalFieldsRFormatModel getNumericalFieldsTableModel(){

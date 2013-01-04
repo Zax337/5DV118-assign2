@@ -5,8 +5,6 @@ package instruction;
 
 import javax.swing.table.AbstractTableModel;
 
-import processor.MipsProcessor;
-
 
 /**
  * @author Acid Flow
@@ -38,17 +36,20 @@ public abstract class Instruction {
 	}
 
 	/**
-	 * Execute the instruction
-	 * @param processor the processor on which the instruction will be executed
+	 * Parse instruction arguments and set each field to its value
 	 */
-	public abstract void execute(MipsProcessor processor);
-
 	protected abstract void parseArguments();
 
+	/**
+	 * Create the binary representation of the instruction
+	 */
 	public abstract void generateBinaryRepresentation();
 
+	/**
+	 * Create the Model for JTable of instruction numerical fields
+	 * @return
+	 */
 	public abstract AbstractTableModel getNumericalFieldsTableModel();
-	public abstract void activateControlsLines(MipsProcessor p);
 
 	public String toString(){
 		return "Instruction [ class = "+ getClass().getSimpleName() + ",\n" +
@@ -56,6 +57,12 @@ public abstract class Instruction {
 				"binary = "+ _binaryRepresentation + "]\n";
 	}
 
+	/**
+	 * Create a binary string using 2 complements on a specified number of bit
+	 * @param binaryString a binary string to extend
+	 * @param bitNumber length of the desired string
+	 * @return binary string using 2 complements on a specified number of bit
+	 */
 	public static String extendToMaxBits(String binaryString, int bitNumber){
 		String ret = binaryString;
 		boolean isNegative = (binaryString.length() == bitNumber && binaryString.charAt(0) == '1') ? true : false;
@@ -67,7 +74,6 @@ public abstract class Instruction {
 			ret = binaryString.substring(binaryString.length() - bitNumber);
 		}
 		return ret;
-
 	}
 
 

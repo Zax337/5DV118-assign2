@@ -1,5 +1,8 @@
 package gui;
 
+import gui.renderer.InstructionMnemonicRenderer;
+import gui.renderer.RegistersRenderer;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,17 +24,16 @@ import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
 
+import processor.MipsProcessor;
 import config.Config;
 import controller.DisplaySwitchController;
 import controller.ResetController;
 import controller.RunController;
 
-import processor.MipsProcessor;
-
 public class MipsMainFrame extends JFrame implements Observer{
 
+	private static final long serialVersionUID = 1L;
 	public static final String DISPLAY_HEX = "Hexadecimal";
 	public static final String DISPLAY_DEC = "Decimal";
 	public static final String TEXT_RUN = "Run";
@@ -47,6 +49,8 @@ public class MipsMainFrame extends JFrame implements Observer{
 	private JTable _numericalFieldsTable;
 	private JLabel _pcValue;
 	private JButton _btnRun;
+	private InstructionMnemonicRenderer _insMnemoRenderer;
+	private RegistersRenderer _regRenderer;
 	
 	public JTable getInstructionTable(){
 		return _instructionTable;
@@ -60,6 +64,8 @@ public class MipsMainFrame extends JFrame implements Observer{
 	 * Create the frame.
 	 */
 	public MipsMainFrame(MipsProcessor processor) {
+		_insMnemoRenderer = new InstructionMnemonicRenderer();
+		_regRenderer = new RegistersRenderer();
 		_processor = processor;
 		setTitle("MipSimulator");
 		setPreferredSize(new Dimension(800, 600));
@@ -240,6 +246,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 		
 		_registerTable = new JTable();
 		_registerTable.setModel(processor.getRegistersTableModel());
+		_registerTable.setDefaultRenderer(Object.class, _regRenderer);
 		scrollPane_2.setViewportView(_registerTable);
 		registerPanel.setLayout(gl_registerPanel);
 		
@@ -359,6 +366,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 		
 		_instructionTable = new JTable();
 		_instructionTable.setModel(processor.getInstructionToDoTableModel());
+		_instructionTable.setDefaultRenderer(Object.class, _insMnemoRenderer);
 		scrollPane.setViewportView(_instructionTable);
 		instructionPanel.setLayout(gl_instructionPanel);
 		_contentPane.setLayout(gl_contentPane);
@@ -376,7 +384,9 @@ public class MipsMainFrame extends JFrame implements Observer{
 
 	public void refresh() {
 		_instructionTable.setModel(_processor.getInstructionToDoTableModel());
-		_instructionTable.setRowSelectionInterval(_processor.getIndexCurrentInstruction(), _processor.getIndexCurrentInstruction());
+		_insMnemoRenderer.setIndexCell(_processor.getIndexCurrentInstruction());
+		_regRenderer.setIndexCell(_processor.getRegisters().getLastChanged());
+		//_instructionTable.setRowSelectionInterval(_processor.getIndexCurrentInstruction(), _processor.getIndexCurrentInstruction());
 		_registerTable.setModel(_processor.getRegistersTableModel());
 		_controlsTable.setModel(_processor.getControlsTableModel());
 		_dataMemoryTable.setModel(_processor.getDataMemoryTableModel());

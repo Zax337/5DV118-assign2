@@ -3,7 +3,6 @@
  */
 package instruction.rformat;
 
-import processor.MipsProcessor;
 
 
 /**
@@ -15,7 +14,7 @@ public final class AddInstruction extends RInstruction {
 	
 	private static final int OP_CODE = 0;
 	public static final int FUNC_CODE = 32;
-	protected static final int SHAMT_VALUE = 0;
+	protected static final int SHAMT_VALUE = 0; 
 	
 	public AddInstruction(){
 		super(null);
@@ -28,7 +27,4 @@ public final class AddInstruction extends RInstruction {
 		super(mnemonic);
 	}
 
-	public void execute(MipsProcessor processor){
-		activateControlsLines(processor);
-	}
 }

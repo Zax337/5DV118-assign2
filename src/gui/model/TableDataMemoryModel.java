@@ -5,10 +5,8 @@ package gui.model;
 
 import javax.swing.table.AbstractTableModel;
 
-import config.Config;
-
 import processor.memory.DataMemory;
-import processor.register.Registers;
+import config.Config;
 
 /**
  * @author Acid Flow
