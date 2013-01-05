@@ -21,15 +21,18 @@ public class DataMemory {
 	private int _inputAddress;
 	private int _inputWriteData;
 	private int _outputReadData;
+	private int _lastChanged;
 	
 	public DataMemory(){
 		_memory = new byte[MEMORY_SIZE];
+		_lastChanged = -4;
 	}
 	
 	public void reset(){
 		for(int i = 0; i < MEMORY_SIZE; i++){
 			_memory[i] = 0;
 		}
+		_lastChanged = -4;
 	}
 	
 	public byte[] getMemoryValue(){
@@ -55,12 +58,18 @@ public class DataMemory {
 	public void setOutputReadData(){
 		if(!_inputMemRead && !_inputMemWrite){
 			_outputReadData = _inputAddress;
+			_lastChanged = -4;
 		}else if(_inputMemRead && !_inputMemWrite){
-			// TODO Peut être de _inputAddress - 1 !!
 			_outputReadData = loadWord();
+			_lastChanged = -4;
 		}else if(!_inputMemRead && _inputMemWrite){
 			storeWord();
+			_lastChanged = _inputAddress;
 		}
+	}
+	
+	public int getLastChanged(){
+		return _lastChanged;
 	}
 	
 	private void storeWord(){

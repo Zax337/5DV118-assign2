@@ -61,6 +61,10 @@ public class MipsProcessor extends Observable{
 	public Registers getRegisters(){
 		return _registers;
 	}
+	
+	public DataMemory getDataMemory(){
+		return _dataMemory;
+	}
 
 	public TableRegisterModel getRegistersTableModel(){
 		return new TableRegisterModel(_registers);

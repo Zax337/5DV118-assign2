@@ -1,5 +1,6 @@
 package gui;
 
+import gui.renderer.DataMemoryRenderer;
 import gui.renderer.InstructionMnemonicRenderer;
 import gui.renderer.RegistersRenderer;
 
@@ -51,6 +52,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 	private JButton _btnRun;
 	private InstructionMnemonicRenderer _insMnemoRenderer;
 	private RegistersRenderer _regRenderer;
+	private DataMemoryRenderer _dataMemRenderer;
 	
 	public JTable getInstructionTable(){
 		return _instructionTable;
@@ -66,6 +68,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 	public MipsMainFrame(MipsProcessor processor) {
 		_insMnemoRenderer = new InstructionMnemonicRenderer();
 		_regRenderer = new RegistersRenderer();
+		_dataMemRenderer = new DataMemoryRenderer();
 		_processor = processor;
 		setTitle("MipSimulator");
 		setPreferredSize(new Dimension(800, 600));
@@ -214,6 +217,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 		panel_2.add(scrollPane_3, BorderLayout.CENTER);
 		
 		_dataMemoryTable = new JTable();
+		_dataMemoryTable.setDefaultRenderer(Object.class, _dataMemRenderer);
 		scrollPane_3.setViewportView(_dataMemoryTable);
 		memoryPanel.setLayout(gl_memoryPanel);
 		
@@ -386,6 +390,7 @@ public class MipsMainFrame extends JFrame implements Observer{
 		_instructionTable.setModel(_processor.getInstructionToDoTableModel());
 		_insMnemoRenderer.setIndexCell(_processor.getIndexCurrentInstruction());
 		_regRenderer.setIndexCell(_processor.getRegisters().getLastChanged());
+		_dataMemRenderer.setIndexCell(_processor.getDataMemory().getLastChanged());
 		//_instructionTable.setRowSelectionInterval(_processor.getIndexCurrentInstruction(), _processor.getIndexCurrentInstruction());
 		_registerTable.setModel(_processor.getRegistersTableModel());
 		_controlsTable.setModel(_processor.getControlsTableModel());

@@ -1,0 +1,33 @@
+The application supports the following instruction set :
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline 
+\textbf{Instruction} & \textbf{Description} \\ 
+\hline 
+add rd, rs, rt & add rs and rt and place the result into rd \\ 
+\hline 
+sub rd, rs, rt & subtract rs and rt and place the result into rd \\ 
+\hline 
+and rd, rs, rt & do a bit to bit and between rs and rt and place the result into rd \\ 
+\hline 
+nor rd, rs, rt & do a bit to bit nor between rs and rt and place the result into rd \\ 
+\hline 
+slt rd, rs, rt & set rd to 1 if rs is lower than rt, 0 otherwise \\ 
+\hline 
+or rd, rs, rt & do a bit to bit or between rs and rt and place the result into rd \\ 
+\hline 
+beq rs, rt, offset & branch to offset is rs is equal to rt \\ 
+\hline 
+lw rt, addr  & load word at addr into rt \\ 
+\hline 
+sw rt, addr & store word in rt to addr \\ 
+\hline 
+addi rs, rt, value & add rt and value and place the result into rs \\ 
+\hline 
+nop & do nothing \\ 
+\hline 
+exit & indicate the end of the program \\ 
+\hline 
+\end{tabular} 
+\end{table}

@@ -155,6 +155,7 @@ public class Registers {
 
 	public void reset(){
 		initRegisters();
+		_lastChanged = -1;
 	}
 	
 	/**
